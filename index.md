@@ -1,6 +1,6 @@
 ## Welcome to GitHub Pages
 
-https://delta-skins.github.io/test
+[Test](https://delta-skins.github.io/test)
 
 You can use the [editor on GitHub](https://github.com/delta-skins/delta-skins.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
