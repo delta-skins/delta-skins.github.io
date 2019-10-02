@@ -9,13 +9,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Avenir Next", sans-serif}
-.w3-third img{margin-bottom: -6px; opacity: 0.8; cursor: pointer}
+.w3-third img{ padding: 2px; opacity: 0.8; cursor: pointer}
 .w3-third img:hover{opacity: 1}
-.center {
-    margin: auto;
-    width: 50%;
-    padding: 10px
-}
+
 div { background-color: transparent ;
     margin: auto;
     width: 100%;
@@ -61,7 +57,7 @@ html {
       <img src="logos/gba logo.png" style="width:45%" onclick="window.location.href='gba.html'" alt="GBA Skins">
       <img src="logos/gbclogo.jpeg" style="width:45%" onclick="window.location.href='gbc.html'" alt="GBC Skins">
       <img src="logos/n64logo.png" style="width:45%" onclick="window.location.href='n64.html'" alt="N64 Skins">
-      <img src="logos/sneslogo.jpeg" style="width:45%" onclick="window.location.href='snes.html'" alt="SNES Skins">
+      <img src="logos/sneslogo.png" style="width:45%" onclick="window.location.href='snes.html'" alt="SNES Skins">
       <img src="logos/neslogo.png" style="width:45%" onclick="window.location.href='nes.html'" alt="NES Skins">
       <img src="logos/ndslogo.png" style="width:45%" onclick="window.location.href='nds.html'" alt="NDS Skins">
 
@@ -81,13 +77,6 @@ function w3_close() {
   document.getElementById("myOverlay").style.display = "none";
 }
 
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
 
 </script>
 
