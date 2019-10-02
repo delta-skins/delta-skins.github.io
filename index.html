@@ -11,10 +11,21 @@
 body,h1,h2,h3,h4,h5 {font-family: "Avenir Next", sans-serif}
 .w3-third img{margin-bottom: -6px; opacity: 0.8; cursor: pointer}
 .w3-third img:hover{opacity: 1}
-div {
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px
+}
+div { background-color: transparent ;
+    margin: auto;
+    width: 100%;
+    padding: 10px}
+html {
+    height: 100%;
     background: rgb(111,14,199);
     background: linear-gradient(126deg, rgba(111,14,199,1) 0%, rgba(255,255,255,1) 100%);
 }
+
 </style>
 <body class="w3-light-purple w3-content" style="max-width:1600px">
 
@@ -45,41 +56,16 @@ div {
   <!-- Push down content on small screens --> 
   <div class="w3-hide-large" style="margin-top:83px"></div>
   
-  <!-- Photo grid -->
-  <div class="w3-row">
-    <div class="w3-third">
+  <!-- Console -->
+ <div class="w3-third auto w3-row">
       <img src="logos/gba logo.png" style="width:45%" onclick="window.location.href='gba.html'" alt="GBA Skins">
-      <img src="logos/gbclogo.jpeg" style="width:45%" onclick="window.location.href='http://www.hyperlinkcode.com/button-links.php'" alt="GBC Skins">
-      <img src="logos/n64logo.png" style="width:45%" onclick="window.location.href='http://www.hyperlinkcode.com/button-links.php'" alt="N64 Skins">
-      <img src="logos/sneslogo.jpeg" style="width:45%" onclick="window.location.href='http://www.hyperlinkcode.com/button-links.php'" alt="SNES Skins">
-      <img src="logos/neslogo.png" style="width:45%" onclick="window.location.href='http://www.hyperlinkcode.com/button-links.php'" alt="NES Skins">
-      <img src="logos/ndslogo.png" style="width:45%" onclick="window.location.href='http://www.hyperlinkcode.com/button-links.php'" alt="NDS Skins">
-    </div>
+      <img src="logos/gbclogo.jpeg" style="width:45%" onclick="window.location.href='gbc.html'" alt="GBC Skins">
+      <img src="logos/n64logo.png" style="width:45%" onclick="window.location.href='n64.html'" alt="N64 Skins">
+      <img src="logos/sneslogo.jpeg" style="width:45%" onclick="window.location.href='snes.html'" alt="SNES Skins">
+      <img src="logos/neslogo.png" style="width:45%" onclick="window.location.href='nes.html'" alt="NES Skins">
+      <img src="logos/ndslogo.png" style="width:45%" onclick="window.location.href='nds.html'" alt="NDS Skins">
 
-  <!-- <div class="w3-third">
-      <img src="/w3images/boy.jpg" style="width:100%" onclick="onClick(this)" alt="Quiet day at the beach. Cold, but beautiful">
-      <img src="/w3images/man_bench.jpg" style="width:100%" onclick="onClick(this)" alt="Waiting for the bus in the desert">
-      <img src="/w3images/natureboy.jpg" style="width:100%" onclick="onClick(this)" alt="Nature again.. At its finest!">
-    </div>
-    
-    <div class="w3-third">
-      <img src="/w3images/girl.jpg" style="width:100%" onclick="onClick(this)" alt="Canoeing again">
-      <img src="/w3images/girl_train.jpg" style="width:100%" onclick="onClick(this)" alt="A girl, and a train passing">
-      <img src="/w3images/closegirl.jpg" style="width:100%" onclick="onClick(this)" alt="What a beautiful day!">
-    </div>
-  </div>
---> 
-  
-  <!-- Modal for full size images on click-->
-  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
-    <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
-    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-      <img id="img01" class="w3-image">
-      <p id="caption"></p>
-    </div>
-  </div>
-
-
+</div>
 <!-- End page content -->
 </div>
 
