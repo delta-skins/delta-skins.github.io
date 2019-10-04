@@ -87,13 +87,26 @@ html {
   
   <!-- Console -->
  <div class="w3-third auto w3-row">
-  <img src="nds/buttonless NDS.png" style="width:55%" onclick="window.location.href='https://github.com/delta-skins/delta-skins.github.io/raw/master/nds/Pokemon_Ranger_Edge_To_Edge_Optimized.deltaskin'" alt="Buttonless NDS">
-  <img src="nds/rhythm heaven NDS.png" class="short" onclick="window.location.href='https://github.com/delta-skins/delta-skins.github.io/raw/master/nds/Rhythm%20Heaven%20E2E.deltaskin'" alt="rhythm heaven NDS">
-  <img src="nds/dark NDS.png" class="short" onclick="window.location.href='https://github.com/delta-skins/delta-skins.github.io/raw/master/nds/NDS_v7.deltaskin'" alt="dark NDS">   
-  <img src="nds/red NDS.png" class="short" onclick="window.location.href='https://github.com/delta-skins/delta-skins.github.io/raw/master/nds/NDS_v9.deltaskin'" alt="red NDS">   
-  <img src="nds/NDS_Night_Candy.png" class="short" onclick="window.location.href='  https://github.com/delta-skins/delta-skins.github.io/raw/master/nds/NDSNightCandy.deltaskin'" alt="night candy NDS">   
+  <img src="nds/buttonless NDS.png" data-maker="Pixel Miku" data-supports="iPhone X or newer" style="width:55%" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/nds/Pokemon_Ranger_Edge_To_Edge_Optimized.deltaskin' alt="Buttonless NDS">
+  <img src="nds/rhythm heaven NDS.png" data-maker="Pixel Miku" data-supports="iPhone X or newer" class="short" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/nds/Rhythm%20Heaven%20E2E.deltaskin' alt="Rhythm Heaven NDS">
+  <img src="nds/dark NDS.png" data-maker="tedmosby" data-supports="iPhone X or newer" class="short" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/nds/NDS_v7.deltaskin' alt="Dark Classic NDS">   
+  <img src="nds/red NDS.png" data-maker="Hornet" data-supports="iPhone X or newer" class="short" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/nds/NDS_v9.deltaskin' alt="Red Classic NDS">   
+  <img src="nds/NDS_Night_Candy.png" data-maker="felix" data-supports="iPhone X or newer" class="short" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/nds/NDSNightCandy.deltaskin' alt="Night Candy NDS">   
 
-     
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <h4 id="caption"></h4>
+      <p>Devices supported:</p>
+      <p id="supports"></p>
+      <p>Created by:</p>
+      <p id="creator"></p>
+      <br>
+      <button id="download" type="submit" onclick="downloadNow()">Download now</button>
+    </div>
+  </div>
+
 
 </div>
 <!-- End page content -->
@@ -111,7 +124,25 @@ function w3_close() {
   document.getElementById("myOverlay").style.display = "none";
 }
 
-
+var downloadLink;
+        function onClick(element) {
+          document.getElementById("img01").src = element.src;
+          document.getElementById("modal01").style.display = "block";
+          var creatorText = document.getElementById("creator");
+          var maker = element.getAttribute("data-maker");
+          creatorText.innerHTML = maker;
+          var captionText = document.getElementById("caption");
+          captionText.innerHTML = element.alt;
+          var supportsText = document.getElementById("supports");
+          var supports = element.getAttribute("data-supports");
+          supportsText.innerHTML = supports;
+          var downloadText = document.getElementsByTagName("button");
+          downloadLink = element.getAttribute("data-download");
+          //downloadText.onclick = window.location.href=download;
+        }
+        function downloadNow(){
+          window.location.href=downloadLink;
+        }
 </script>
 
 

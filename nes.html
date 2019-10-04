@@ -81,7 +81,23 @@ html {
   
   <!-- Console -->
  <div class="w3-third auto w3-row">
-          <img src="nes/tetris nes.png" style="width:45%" onclick="window.location.href='https://github.com/delta-skins/delta-skins.github.io/raw/master/nes/Tetris%20Theme.deltaskin'" alt="Tetris NES">
+    <img src="nes/tetris nes.png" data-maker="Ruben" data-supports="iPhone 8 or older" style="width:45%" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/nes/Tetris%20Theme.deltaskin' alt="Tetris NES">
+
+
+    <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+      <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+      <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+        <img id="img01" class="w3-image">
+        <h4 id="caption"></h4>
+        <p>Devices supported:</p>
+        <p id="supports"></p>
+        <p>Created by:</p>
+        <p id="creator"></p>
+        <br>
+        <button id="download" type="submit" onclick="downloadNow()">Download now</button>
+      </div>
+    </div>
+    
 
 </div>
 <!-- End page content -->
@@ -98,7 +114,25 @@ function w3_close() {
   document.getElementById("mySidebar").style.display = "none";
   document.getElementById("myOverlay").style.display = "none";
 }
-
+var downloadLink;
+        function onClick(element) {
+          document.getElementById("img01").src = element.src;
+          document.getElementById("modal01").style.display = "block";
+          var creatorText = document.getElementById("creator");
+          var maker = element.getAttribute("data-maker");
+          creatorText.innerHTML = maker;
+          var captionText = document.getElementById("caption");
+          captionText.innerHTML = element.alt;
+          var supportsText = document.getElementById("supports");
+          var supports = element.getAttribute("data-supports");
+          supportsText.innerHTML = supports;
+          var downloadText = document.getElementsByTagName("button");
+          downloadLink = element.getAttribute("data-download");
+          //downloadText.onclick = window.location.href=download;
+        }
+        function downloadNow(){
+          window.location.href=downloadLink;
+        }
 
 </script>
 
