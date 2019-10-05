@@ -46,6 +46,20 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 
 <url>
 
+    <loc>https://delta-skins.github.io/howto.html</loc>
+
+    <lastmod>2019-10-04</lastmod>
+
+    <changefreq>hourly</changefreq>
+
+
+
+    <priority>0.8</priority>
+
+</url>  
+
+<url>
+
     <loc>https://delta-skins.github.io/gba.html</loc>
 
     <lastmod>2019-10-04</lastmod>
