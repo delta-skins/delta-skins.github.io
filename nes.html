@@ -16,6 +16,13 @@
   
     gtag('config', 'UA-149365146-1');
   </script>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5K45P8L');</script>
+    <!-- End Google Tag Manager -->
   </head>
   <style>
       body,h1,h2,h3,h4,h5 {font-family: "Avenir Next", sans-serif}
@@ -27,6 +34,9 @@
           opacity: 0.8;
           background-color: black;
       }
+      .hideSupport{
+  display: none;
+}
       nav {
           opacity: 0.8;
           display:none;
@@ -52,8 +62,11 @@
       }
       
       </style>
-      <body class="w3-light-purple w3-content" style="max-width:1600px">
-      
+      <body class="w3-light-purple w3-content" style="max-width:1600px" onLoad="loadImages()">
+      <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5K45P8L"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
       <!-- Sidebar/menu -->
       <nav class=" w3-bar-block w3-white w3-animate-left w3-sidebar  w3-top w3-center" style="z-index:3;width:300px;font-weight:bold;display:none;height:100%" id="mySidebar"><br>
         <h3 class="w3-padding-64 w3-center"><a href="index.html" class="link"><b>Delta Skins</b></a></h3>
@@ -83,6 +96,16 @@
       
         <!-- Push down content on small screens --> 
         <div style="margin-top:83px"></div>
+          <!--Filter selector -->
+    <div>
+        <h3>Filter:</h3>
+        <h5>Supported devices:</h5>
+        <select onchange="filterSkinsSupport(this.value)">
+          <option value="all">All</option>
+          <option value="new">iPhone X and newer</option>
+          <option value="old">iPhone 8 and older</option>
+        </select>
+        </div>
   <!-- Console -->
  <div class="skins w3-center">
     <img src="nes/tetris nes.png" data-maker="Ruben" data-supports="iPhone 8 or older" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/nes/Tetris%20Theme.deltaskin' alt="Tetris NES">
@@ -138,7 +161,29 @@ var downloadLink;
         function downloadNow(){
           window.location.href=downloadLink;
         }
-
+        var images;
+function loadImages(){
+  images = Array.from(document.getElementsByTagName("img"))
+  images.splice(-1,1)
+}
+function filterSkinsSupport(filterType){
+  for(i in images){
+    images[i].classList.remove("hideSupport");
+  }
+  if(filterType == "new"){
+  for(i in images){
+    if (images[i].getAttribute("data-supports").includes("8")){
+      images[i].classList.add("hideSupport");
+    }
+  }
+}else if(filterType == "old"){
+  for(i in images){
+    if (images[i].getAttribute("data-supports").includes("X")){
+      images[i].classList.add("hideSupport");
+    }
+  }
+}
+}
 </script>
 
 
