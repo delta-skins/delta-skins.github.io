@@ -17,72 +17,75 @@
     gtag('config', 'UA-149365146-1');
   </script>
   </head>
-<style>
-body,h1,h2,h3,h4,h5 {font-family: "Avenir Next", sans-serif}
-.w3-third img{ padding: 2px; opacity: 1.0; cursor: pointer}
-.w3-third img:hover{opacity: 1}
-header {
-    opacity: 0.8;
-    background-color: black;
-}
-nav {
-    opacity: 0.8;
-    background-color: black;
-}
-a.link{
-    text-decoration: none;
-}
-.w3-bar-item{
-    opacity: 1.0;
-}
-div { background-color: transparent ;
-    margin: auto;
-    width: 100%;
-    padding: 10px}
-html {
-    height: 100%;
-    background: rgb(111,14,199);
-    background: linear-gradient(126deg, rgba(111,14,199,1) 0%, rgba(255,255,255,1) 100%);
-    margin: 0;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
-</style>
-<body class="w3-light-purple w3-content" style="max-width:1600px">
-
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-bar-block w3-white w3-animate-left w3-text-grey w3-collapse w3-top w3-center" style="z-index:3;width:300px;font-weight:bold" id="mySidebar"><br>
-  <h3 class="w3-padding-64 w3-center"><a href="index.html" class="link"><b>Delta Skins</b></a></h3>
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-hide-large">CLOSE</a>
-  <a href="index.html" onclick="w3_close()" class="w3-bar-item w3-button">Home</a>
-  <a href="howto.html" onclick="w3_close()" class="w3-bar-item w3-button">How to install</a>
-  <a href="gba.html" onclick="w3_close()" class="w3-bar-item w3-button">GBA</a> 
-  <a href="gbc.html" onclick="w3_close()" class="w3-bar-item w3-button">GBC</a> 
-  <a href="n64.html" onclick="w3_close()" class="w3-bar-item w3-button">N64</a>
-  <a href="snes.html" onclick="w3_close()" class="w3-bar-item w3-button">SNES</a> 
-  <a href="nes.html" onclick="w3_close()" class="w3-bar-item w3-button">NES</a> 
-  <a href="nds.html" onclick="w3_close()" class="w3-bar-item w3-button">NDS</a>
-</nav>
-
-<!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
-    <a href="index.html" class="w3-left w3-padding link">Delta Skins</a>
-  <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
-</header>
-
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:300px">
-
-  <!-- Push down content on small screens --> 
-  <div class="w3-hide-large" style="margin-top:83px"></div>
-  
+  <style>
+      body,h1,h2,h3,h4,h5 {font-family: "Avenir Next", sans-serif}
+      .w3-third img{ padding: 2px; opacity: 1.0; cursor: pointer}
+      .w3-third img:hover{opacity: 1}
+      .skins img{padding:5px;cursor: pointer;width: 180px;height:auto;position: relative;}
+      .skins {position: relative;float:right;}
+      header {
+          opacity: 0.8;
+          background-color: black;
+      }
+      nav {
+          opacity: 0.8;
+          display:none;
+          background-color: black;
+      }
+      a.link{
+          text-decoration: none;
+      }
+      .w3-bar-item{
+          opacity: 1.0;
+      }
+      div { background-color: transparent ;
+          margin: auto;
+          width: 100%;
+          padding: 10px}
+      html {
+          height: 100%;
+          background: rgb(111,14,199);
+          background: linear-gradient(126deg, rgba(111,14,199,1) 0%, rgba(255,255,255,1) 100%);
+          margin: 0;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+      }
+      
+      </style>
+      <body class="w3-light-purple w3-content" style="max-width:1600px">
+      
+      <!-- Sidebar/menu -->
+      <nav class=" w3-bar-block w3-white w3-animate-left w3-sidebar  w3-top w3-center" style="z-index:3;width:300px;font-weight:bold;display:none;height:100%" id="mySidebar"><br>
+        <h3 class="w3-padding-64 w3-center"><a href="index.html" class="link"><b>Delta Skins</b></a></h3>
+        <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">CLOSE</a>
+        <a href="index.html" onclick="w3_close()" class="w3-bar-item w3-button">Home</a>
+        <a href="howto.html" onclick="w3_close()" class="w3-bar-item w3-button">How to</a>
+        <a href="gba.html" onclick="w3_close()" class="w3-bar-item w3-button">GBA</a> 
+        <a href="gbc.html" onclick="w3_close()" class="w3-bar-item w3-button">GBC</a> 
+        <a href="n64.html" onclick="w3_close()" class="w3-bar-item w3-button">N64</a>
+        <a href="snes.html" onclick="w3_close()" class="w3-bar-item w3-button">SNES</a> 
+        <a href="nes.html" onclick="w3_close()" class="w3-bar-item w3-button">NES</a> 
+        <a href="nds.html" onclick="w3_close()" class="w3-bar-item w3-button">NDS</a>
+      </nav>
+      
+      <!-- Top menu on small screens -->
+      <header class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
+          <a href="index.html" class="w3-left w3-padding link">Delta Skins</a>
+        <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
+      </header>
+      
+      <!-- Overlay effect when opening sidebar on small screens -->
+      <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+      
+      <!-- !PAGE CONTENT! -->
+      <div class="w3-main">
+      <script>w3_close();</script>
+      
+        <!-- Push down content on small screens --> 
+        <div style="margin-top:83px"></div>
   <!-- Console -->
- <div class="w3-third auto w3-row">
-    <img src="nes/tetris nes.png" data-maker="Ruben" data-supports="iPhone 8 or older" style="width:45%" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/nes/Tetris%20Theme.deltaskin' alt="Tetris NES">
+ <div class="skins w3-center">
+    <img src="nes/tetris nes.png" data-maker="Ruben" data-supports="iPhone 8 or older" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/nes/Tetris%20Theme.deltaskin' alt="Tetris NES">
 
 
     <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
