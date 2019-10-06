@@ -29,14 +29,14 @@
       .w3-third img{ padding: 2px; opacity: 1.0; cursor: pointer}
       .w3-third img:hover{opacity: 1}
       .skins img{padding:5px;cursor: pointer;width: 180px;height:auto;position: relative;}
-      .skins {position: relative;float:right;}
+      .skins {position: relative;}
       header {
           opacity: 0.8;
           background-color: black;
       }
       .hideSupport{
-  display: none;
-}
+      display: none;
+        }
       nav {
           opacity: 0.8;
           display:none;
@@ -48,7 +48,7 @@
       .w3-bar-item{
           opacity: 1.0;
       }
-      div { background-color: transparent ;
+      div.padding { background-color: transparent ;
           margin: auto;
           width: 100%;
           padding: 10px}
@@ -62,13 +62,13 @@
       }
       
       </style>
-      <body class="w3-light-purple w3-content" style="max-width:1600px" onLoad="loadImages()">
+      <body class="w3-light-purple w3-content " style="max-width:1600px" onLoad="loadImages()">
       <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5K45P8L"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
       <!-- Sidebar/menu -->
-      <nav class=" w3-bar-block w3-white w3-animate-left w3-sidebar  w3-top w3-center" style="z-index:3;width:300px;font-weight:bold;display:none;height:100%" id="mySidebar"><br>
+      <nav class=" w3-bar-block w3-white w3-animate-left w3-hide-large w3-sidebar  w3-top w3-center" style="z-index:3;width:300px;font-weight:bold;display:none;height:100%" id="mySidebar"><br>
         <h3 class="w3-padding-64 w3-center"><a href="index.html" class="link"><b>Delta Skins</b></a></h3>
         <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">CLOSE</a>
         <a href="index.html" onclick="w3_close()" class="w3-bar-item w3-button">Home</a>
@@ -84,15 +84,24 @@
       <!-- Top menu on small screens -->
       <header class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
           <a href="index.html" class="w3-left w3-padding link">Delta Skins</a>
-        <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
+          <div class="w3-hide-small w3-hide-medium w3-center">
+          <a href="index.html" onclick="w3_close()" class="w3-bar-item w3-button">Home</a>
+        <a href="howto.html" onclick="w3_close()" class="w3-bar-item w3-button">How to</a>
+        <a href="gba.html" onclick="w3_close()" class="w3-bar-item w3-button">GBA</a> 
+        <a href="gbc.html" onclick="w3_close()" class="w3-bar-item w3-button">GBC</a> 
+        <a href="n64.html" onclick="w3_close()" class="w3-bar-item w3-button">N64</a>
+        <a href="snes.html" onclick="w3_close()" class="w3-bar-item w3-button">SNES</a> 
+        <a href="nes.html" onclick="w3_close()" class="w3-bar-item w3-button">NES</a> 
+        <a href="nds.html" onclick="w3_close()" class="w3-bar-item w3-button">NDS</a>
+        </div>
+        <a href="javascript:void(0)" class="w3-right w3-button w3-white w3-hide-large" onclick="w3_open()">☰</a>
       </header>
       
       <!-- Overlay effect when opening sidebar on small screens -->
       <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
       
       <!-- !PAGE CONTENT! -->
-      <div class="w3-main">
-      <script>w3_close();</script>
+      <div class="w3-main padding">
       
         <!-- Push down content on small screens --> 
         <div style="margin-top:83px"></div>
