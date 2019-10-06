@@ -83,6 +83,18 @@
       
         <!-- Push down content on small screens --> 
         <div style="margin-top:83px"></div>
+
+          <!--Filter selector -->
+    <div>
+        <h3>Filter:</h3>
+        <h5>Supported devices:</h5>
+        <select onchange="filterSkinsSupport(this.value)">
+          <option value="all">No filter</option>
+          <option value="new">iPhone X and newer</option>
+          <option value="old">iPhone 8 and older</option>
+        </select>
+        </div>
+
   <!-- Console -->
  <div class="skins w3-center">
     <img src="nes/tetris nes.png" data-maker="Ruben" data-supports="iPhone 8 or older" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/nes/Tetris%20Theme.deltaskin' alt="Tetris NES">

@@ -83,6 +83,18 @@
       
         <!-- Push down content on small screens --> 
         <div style="margin-top:83px"></div>
+
+          <!--Filter selector -->
+    <div>
+        <h3>Filter:</h3>
+        <h5>Supported devices:</h5>
+        <select onchange="filterSkinsSupport(this.value)">
+          <option value="all">No filter</option>
+          <option value="new">iPhone X and newer</option>
+          <option value="old">iPhone 8 and older</option>
+        </select>
+        </div>
+
   <!-- Console -->
  <div class="skins w3-center">
   <img src="n64/dark purple n64.png" data-maker="Helbrecht" data-supports="All phones" style="width:175px" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/n64/Standard_n64.deltaskin' alt="Dark Purple N64">

@@ -89,6 +89,18 @@ html {
 
   <div style="margin-top:83px"></div>
 
+
+  <!--Filter selector -->
+    <div>
+  <h3>Filter:</h3>
+  <h5>Supported devices:</h5>
+  <select onchange="filterSkinsSupport(this.value)">
+    <option value="all">No filter</option>
+    <option value="new">iPhone X and newer</option>
+    <option value="old">iPhone 8 and older</option>
+  </select>
+  </div>
+
   <!-- Console -->
 
  <div class="skins w3-center">
