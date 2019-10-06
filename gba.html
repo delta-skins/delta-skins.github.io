@@ -23,9 +23,13 @@ body,h1,h2,h3,h4,h5 {font-family: "Avenir Next", sans-serif}
 .w3-third img:hover{opacity: 1}
 .skins img{padding:5px;cursor: pointer;width: 180px;height:auto;position: relative;}
 .skins {position: relative;float:right;}
+
 header {
     opacity: 0.8;
     background-color: black;
+}
+.hide{
+  display: hide;
 }
 nav {
     opacity: 0.8;
@@ -82,8 +86,15 @@ html {
 <script>w3_close();</script>
 
   <!-- Push down content on small screens --> 
+
   <div style="margin-top:83px"></div>
-  
+    <div>
+  <h3>Filter:</h3>
+  <select>
+    <option onChange="filterSkins(this.value)">All</option>
+    <option onChange="filterSkins(this.value)">Includes landscape</option>
+  </select>
+  </div>
   <!-- Console -->
 
  <div class="skins w3-center">
@@ -106,7 +117,6 @@ html {
      <img src="gba/charmanderGBA.png" data-maker="felix" data-supports="All phones + landscape"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/CharmanderGBA.deltaskin' alt="Charmander GBA">
      <img src="gba/pikachuGBA.png" data-maker="felix" data-supports="All phones + landscape"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/PikachuSP.deltaskin' alt="Pikachu SP GBA">
  </div>
-
 
        <!-- Modal for full size images on click-->
   <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
@@ -155,7 +165,9 @@ function onClick(element) {
 function downloadNow(){
   window.location.href=downloadLink;
 }
-
+function filterSkins(filterType){
+  var images = document.getElementsByTagName("img")
+}
 </script>
 
 
