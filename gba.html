@@ -20,7 +20,6 @@
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Avenir Next", sans-serif}
 .w3-third img{ padding: 2px; cursor: pointer}
-.w3-third img:hover{opacity: 1}
 header {
     opacity: 0.8;
     background-color: black;
@@ -82,12 +81,13 @@ html {
 
   <!-- Push down content on small screens --> 
   <div class="w3-hide-large" style="margin-top:83px"></div>
+  <div>
   <h3>Filter:</h3>
   <select>
     <option onChange="filterSkins(this.value)">All</option>
     <option onChange="filterSkins(this.value)">Includes landscape</option>
   </select>
-  
+  </div>
   <!-- Console -->
  <div class="w3-third auto w3-row">
       <img src="gba/darkmodegba pic.png" class="hide" style="width:45%" onclick="onClick(this)" alt="Dark Mode GBA" data-maker="Vustom" data-supports="All phones" data-download="https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Dark%20Mode%20GBA.deltaskin">
