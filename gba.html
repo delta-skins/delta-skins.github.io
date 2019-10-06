@@ -21,12 +21,15 @@
 body,h1,h2,h3,h4,h5 {font-family: "Avenir Next", sans-serif}
 .w3-third img{ padding: 2px; opacity: 1.0; cursor: pointer}
 .w3-third img:hover{opacity: 1}
+.skins img{padding:3px;cursor: pointer;width: 220px;height:auto;position: relative;}
+.skins {position: relative;float:right;}
 header {
     opacity: 0.8;
     background-color: black;
 }
 nav {
     opacity: 0.8;
+    display:none;
     background-color: black;
 }
 a.link{
@@ -52,11 +55,11 @@ html {
 <body class="w3-light-purple w3-content" style="max-width:1600px">
 
 <!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-bar-block w3-white w3-animate-left w3-text-grey w3-collapse w3-top w3-center" style="z-index:3;width:300px;font-weight:bold" id="mySidebar"><br>
+<nav class=" w3-bar-block w3-white w3-animate-left w3-sidebar  w3-top w3-center" style="z-index:3;width:300px;font-weight:bold;display:none;height:100%" id="mySidebar"><br>
   <h3 class="w3-padding-64 w3-center"><a href="index.html" class="link"><b>Delta Skins</b></a></h3>
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-hide-large">CLOSE</a>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">CLOSE</a>
   <a href="index.html" onclick="w3_close()" class="w3-bar-item w3-button">Home</a>
-  <a href="howto.html" onclick="w3_close()" class="w3-bar-item w3-button">How to install</a>
+  <a href="howto.html" onclick="w3_close()" class="w3-bar-item w3-button">How to</a>
   <a href="gba.html" onclick="w3_close()" class="w3-bar-item w3-button">GBA</a> 
   <a href="gbc.html" onclick="w3_close()" class="w3-bar-item w3-button">GBC</a> 
   <a href="n64.html" onclick="w3_close()" class="w3-bar-item w3-button">N64</a>
@@ -66,41 +69,44 @@ html {
 </nav>
 
 <!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
+<header class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
     <a href="index.html" class="w3-left w3-padding link">Delta Skins</a>
   <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
 </header>
 
 <!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
 <!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:300px">
+<div class="w3-main">
+<script>w3_close();</script>
 
   <!-- Push down content on small screens --> 
-  <div class="w3-hide-large" style="margin-top:83px"></div>
+  <div style="margin-top:83px"></div>
   
   <!-- Console -->
- <div class="w3-third auto w3-row">
-      <img src="gba/darkmodegba pic.png" style="width:45%" onclick="onClick(this)" alt="Dark Mode GBA" data-maker="Vustom" data-supports="All phones" data-download="https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Dark%20Mode%20GBA.deltaskin">
-      <img src="gba/grey standard gba.png" style="width:45%" onclick="onClick(this)" data-maker="Helbrecht" data-supports="All phones + landscape" data-download="https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Standard%20GBA%20Gray.deltaskin" alt="Grey Standard GBA">
-      <img src="gba/switch gba.PNG" data-maker="Zeskoto" data-supports="iPhone 8 and older" style="width:45%" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Switch.deltaskin' alt="Switch GBA">
-      <img src="gba/whitegold gba.png" data-supports="All phones" style="width:45%" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/WhiteGold%20GBA.deltaskin' data-maker="Ruben" alt="White Gold GBA">
-      <img src="gba/Purple SP GBA.png" data-maker="felix" data-supports="All phones + landscape" style="width:45%" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/PurpleSP.deltaskin' alt="Purple SP GBA">
-      <img src="gba/cyan GBA.PNG" style="width:45%" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Standard%20GBA%20Cyan.deltaskin' alt="Standard cyan GBA" data-maker="Helbrecht" data-supports="All phones + landscape">
-      <img src="gba/gold GBA.PNG" style="width:45%" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Standard%20GBA%20Gold.deltaskin' alt="Standard gold GBA" data-maker="Helbrecht" data-supports="All phones + landscape">
-      <img src="gba/green GBA.PNG" style="width:45%" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Standard%20GBA%20Green.deltaskin' alt="Standard green GBA" data-maker="Helbrecht" data-supports="All phones + landscape">
-      <img src="gba/orange GBA.PNG" style="width:45%" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Standard%20GBA%20Orange.deltaskin' alt="Standard orange GBA" data-maker="Helbrecht" data-supports="All phones + landscape">
-      <img src="gba/red GBA.PNG" style="width:45%" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Standard%20GBA%20Red.deltaskin' alt="Standard red GBA" data-maker="Helbrecht" data-supports="All phones + landscape">
-      <img src="gba/yellow GBA.PNG" style="width:45%" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Standard%20GBA%20Yellow.deltaskin' alt="Standard yellow GBA" data-maker="Helbrecht" data-supports="All phones + landscape">
-      <img src="gba/blue GBA.PNG" style="width:45%" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Standard%20GBA%20Blue.deltaskin' alt="Standard blue GBA" data-maker="Helbrecht" data-supports="All phones + landscape">
-     <img src="gba/minimal GBA.png" data-maker="circa" data-supports="All phones + landscape" style="width:45%" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/com.circa.minimal.deltaskin' alt="Minimal GBA">
-     <img src="gba/tealGBA.png" data-maker="Hornet" data-supports="All phones" style="width:45%" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Teal_GBA.deltaskin' alt="Standard Teal GBA">
-     <img src="gba/squirtleGBA.png" data-maker="felix" data-supports="All phones + landscape" style="width:45%" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/SquirtleGBA.deltaskin' alt="Squirtle GBA">
-     <img src="gba/bulbasaurGBA.png" data-maker="felix" data-supports="All phones + landscape" style="width:45%" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/BulbasaurGBA.deltaskin' alt="Bulbasaur GBA">
-     <img src="gba/charmanderGBA.png" data-maker="felix" data-supports="All phones + landscape" style="width:45%" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/CharmanderGBA.deltaskin' alt="Charmander GBA">
-     <img src="gba/pikachuGBA.png" data-maker="felix" data-supports="All phones + landscape" style="width:45%" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/PikachuSP.deltaskin' alt="Pikachu SP GBA">
-     
+
+ <div class="skins">
+     <img src="gba/darkmodegba pic.png" onclick="onClick(this)" alt="Dark Mode GBA" data-maker="Vustom" data-supports="All phones" data-download="https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Dark%20Mode%20GBA.deltaskin">
+     <img src="gba/grey standard gba.png"  onclick="onClick(this)" data-maker="Helbrecht" data-supports="All phones + landscape" data-download="https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Standard%20GBA%20Gray.deltaskin" alt="Grey Standard GBA">
+     <img src="gba/switch gba.PNG" data-maker="Zeskoto" data-supports="iPhone 8 and older"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Switch.deltaskin' alt="Switch GBA">
+     <img src="gba/whitegold gba.png" data-supports="All phones"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/WhiteGold%20GBA.deltaskin' data-maker="Ruben" alt="White Gold GBA">
+     <img src="gba/Purple SP GBA.png" data-maker="felix" data-supports="All phones + landscape"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/PurpleSP.deltaskin' alt="Purple SP GBA">
+     <img src="gba/cyan GBA.PNG"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Standard%20GBA%20Cyan.deltaskin' alt="Standard cyan GBA" data-maker="Helbrecht" data-supports="All phones + landscape">
+     <img src="gba/gold GBA.PNG"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Standard%20GBA%20Gold.deltaskin' alt="Standard gold GBA" data-maker="Helbrecht" data-supports="All phones + landscape">
+     <img src="gba/green GBA.PNG"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Standard%20GBA%20Green.deltaskin' alt="Standard green GBA" data-maker="Helbrecht" data-supports="All phones + landscape">
+     <img src="gba/orange GBA.PNG"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Standard%20GBA%20Orange.deltaskin' alt="Standard orange GBA" data-maker="Helbrecht" data-supports="All phones + landscape">
+     <img src="gba/red GBA.PNG"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Standard%20GBA%20Red.deltaskin' alt="Standard red GBA" data-maker="Helbrecht" data-supports="All phones + landscape">
+     <img src="gba/yellow GBA.PNG"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Standard%20GBA%20Yellow.deltaskin' alt="Standard yellow GBA" data-maker="Helbrecht" data-supports="All phones + landscape">
+     <img src="gba/blue GBA.PNG"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Standard%20GBA%20Blue.deltaskin' alt="Standard blue GBA" data-maker="Helbrecht" data-supports="All phones + landscape">
+     <img src="gba/minimal GBA.png" data-maker="circa" data-supports="All phones + landscape"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/com.circa.minimal.deltaskin' alt="Minimal GBA">
+     <img src="gba/tealGBA.png" data-maker="Hornet" data-supports="All phones"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Teal_GBA.deltaskin' alt="Standard Teal GBA">
+     <img src="gba/squirtleGBA.png" data-maker="felix" data-supports="All phones + landscape"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/SquirtleGBA.deltaskin' alt="Squirtle GBA">
+     <img src="gba/bulbasaurGBA.png" data-maker="felix" data-supports="All phones + landscape"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/BulbasaurGBA.deltaskin' alt="Bulbasaur GBA">
+     <img src="gba/charmanderGBA.png" data-maker="felix" data-supports="All phones + landscape"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/CharmanderGBA.deltaskin' alt="Charmander GBA">
+     <img src="gba/pikachuGBA.png" data-maker="felix" data-supports="All phones + landscape"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/PikachuSP.deltaskin' alt="Pikachu SP GBA">
+ </div>
+
 
        <!-- Modal for full size images on click-->
   <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
@@ -116,7 +122,6 @@ html {
       <button id="download" type="submit" onclick="downloadNow()">Download now</button>
     </div>
   </div>
-</div>
 <!-- End page content -->
 </div>
 
