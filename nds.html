@@ -106,15 +106,17 @@
         <!-- Push down content on small screens --> 
         <div style="margin-top:83px"></div>
           <!--Filter selector -->
-    <div>
-        <h3>Filter:</h3>
-        <h5>Supported devices:</h5>
-        <select onchange="filterSkinsSupport(this.value)">
-          <option value="all">No filter</option>
-          <option value="new">iPhone X and newer</option>
-          <option value="old">iPhone 8 and older</option>
-        </select>
-        </div>
+          <div style="padding-bottom: 10px">
+              <button type="button" class="w3-button w3-small w3-round-xlarge w3-padding-small" style="border-color: black; border-style: solid;background-color: black;color:white" onclick="showFilters(this)"><b>Show Filters</b></button>
+              <div id="filters" style="display:none">
+              <h5>Supported devices:</h5>
+              <select onchange="filterSkinsSupport(this.value)">
+                <option value="all">No filter</option>
+                <option value="new">iPhone X and newer</option>
+                <option value="old">iPhone 8 and older</option>
+              </select>
+              </div>
+              </div>
   <!-- Console -->
  <div class="skins w3-center">
   <img src="nds/buttonless NDS.png" data-maker="Pixel Miku" data-supports="iPhone X or newer" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/nds/Pokemon_Ranger_Edge_To_Edge_Optimized.deltaskin' alt="Buttonless NDS">
@@ -195,6 +197,15 @@ function filterSkinsSupport(filterType){
       images[i].classList.add("hideSupport");
     }
   }
+}
+}
+function showFilters(element){
+  if (element.innerHTML=="<b>Show Filters</b>"){
+  document.getElementById("filters").style.display="block";
+  element.innerHTML = "<b>Hide Filters</b>"
+} else{
+  document.getElementById("filters").style.display="none";
+  element.innerHTML = "<b>Show Filters</b>"
 }
 }
 </script>
