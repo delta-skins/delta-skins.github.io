@@ -37,6 +37,9 @@
       .hideSupport{
       display: none;
         }
+        .hideCreator{
+    display: none;
+      }
       nav {
           opacity: 0.8;
           display:none;
@@ -108,13 +111,25 @@
           <!--Filter selector -->
           <div style="padding-bottom: 10px">
               <button type="button" class="w3-button w3-small w3-round-xlarge w3-padding-small" style="border-color: black; border-style: solid;background-color: black;color:white" onclick="showFilters(this)"><b>Show Filters</b></button>
-              <div id="filters" style="display:none">
-              <h5>Supported devices:</h5>
+              <div id="filters" style="display:none;" class='row'>
+              <div class="row" style="display:table-cell;padding: 5px">
+                <h5>Supported devices:</h5>
               <select onchange="filterSkinsSupport(this.value)">
                 <option value="all">No filter</option>
                 <option value="new">iPhone X and newer</option>
                 <option value="old">iPhone 8 and older</option>
               </select>
+              </div>
+              <div class="row" style="display:table-cell;padding: 5px">
+              <h5>Creators:</h5>
+              <select onchange="filterSkinsCreator(this.value)">
+                <option value="">No filter</option>
+                <option value="Helbrecht">Helbrecht</option>
+                <option value="Hornet">Hornet</option>
+                <option value="spaz">spaz</option>
+                <option value="Thatdud">Thatdud</option>
+              </select>
+              </div>
               </div>
               </div>
   <!-- Console -->
@@ -208,6 +223,19 @@ var downloadLink;
   document.getElementById("filters").style.display="none";
   element.innerHTML = "<b>Show Filters</b>"
 }
+}
+function filterSkinsCreator(filterType){
+  
+  for(i in images){
+    images[i].classList.remove("hideCreator");
+  }
+  if(filterType!=""){
+  for(i in images){
+    if(!(images[i].getAttribute("data-maker").includes(filterType))){
+      images[i].classList.add("hideCreator")
+    }
+  }
+  }
 }
 </script>
 
