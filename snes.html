@@ -40,6 +40,9 @@
         .hideCreator{
     display: none;
       }
+      .hidePortrait{
+        display:none;
+      }
       nav {
           opacity: 0.8;
           display:none;
@@ -127,6 +130,11 @@
                 <option value="Pixel Miku">Pixel Miku</option>
                 <option value="Hornet">Hornet</option>
               </select>
+              </div>
+              <div class="row" style="display:table-cell;padding: 5px">
+                  <label for="checkid"  style="word-wrap:break-word">
+                   <input type="checkbox" name="landscape" onchange="includeLandscape(this)"> Includes landscape
+                  </label>
               </div>
               </div>
               </div>
@@ -227,6 +235,19 @@ function filterSkinsCreator(filterType){
       images[i].classList.add("hideCreator")
     }
   }
+  }
+}
+function includeLandscape(element){
+  if(element.checked){
+    for(i in images){
+      if(!(images[i].getAttribute("data-supports").includes("landscape"))){
+      images[i].classList.add("hidePortrait")
+    }
+    }
+  }else {
+    for(i in images){
+      images[i].classList.remove("hidePortrait")
+    }
   }
 }
 </script>
