@@ -85,3 +85,25 @@ function includeLandscape(element){
     }
   }
 }
+function sortBy(sort){
+  if (sort == "newold"){
+    sortedImages = images;
+    sortedImages.sort(function(a,b){
+      var contentA =a.dataset.added;
+      var contentB =b.dataset.added;
+      return (contentB - contentA);
+    });
+    console.log(sortedImages);
+    var unsortedImages = Array.from(document.getElementsByTagName("img"));
+    unsortedImages.splice(-1,1);
+    for(i in sortedImages){
+      unsortedImages[i].src = sortedImages[i].src;
+      unsortedImages[i].alt = sortedImages[i].alt;
+      unsortedImages[i].setAttribute("data-download",sortedImages[i].getAttribute("data-download"));
+      unsortedImages[i].setAttribute("data-added",sortedImages[i].getAttribute("data-added"));
+      unsortedImages[i].setAttribute("data-supports",sortedImages[i].getAttribute('data-supports'));
+      unsortedImages[i].setAttribute("data-maker",sortedImages[i].getAttribute("data-maker"));
+
+    }
+  }
+}
