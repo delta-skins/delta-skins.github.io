@@ -89,8 +89,9 @@ function sortBy(sort){
   if (sort == "newold"){
     sortedImages = images;
     sortedImages.sort(function(a,b){
-      var contentA =a.dataset.added;
-      var contentB =b.dataset.added;
+      var contentA =parseInt(a.dataset.added,10);
+      var contentB =parseInt(b.dataset.added,10);
+      console.log("A = " + contentA +" B = " + contentB);
       return (contentB - contentA);
     });
     console.log(sortedImages);
