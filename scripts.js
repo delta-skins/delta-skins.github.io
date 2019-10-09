@@ -87,23 +87,16 @@ function includeLandscape(element){
 }
 function sortBy(sort){
   if (sort == "newold"){
-    sortedImages = images;
-    sortedImages.sort(function(a,b){
+    images.sort(function(a,b){
       var contentA =parseInt(a.dataset.added,10);
       var contentB =parseInt(b.dataset.added,10);
-      console.log("A = " + contentA +" B = " + contentB);
       return (contentB - contentA);
     });
-    console.log(sortedImages);
-    var unsortedImages = Array.from(document.getElementsByTagName("img"));
-    unsortedImages.splice(-1,1);
-    for(i in sortedImages){
-      unsortedImages[i].src = sortedImages[i].src;
-      unsortedImages[i].alt = sortedImages[i].alt;
-      unsortedImages[i].setAttribute("data-download",sortedImages[i].getAttribute("data-download"));
-      unsortedImages[i].setAttribute("data-added",sortedImages[i].getAttribute("data-added"));
-      unsortedImages[i].setAttribute("data-supports",sortedImages[i].getAttribute('data-supports'));
-      unsortedImages[i].setAttribute("data-maker",sortedImages[i].getAttribute("data-maker"));
+    console.log(images);
+    
+    for(i in images){
+      console.log(images[i].dataset.added);
+      
 
     }
   }
