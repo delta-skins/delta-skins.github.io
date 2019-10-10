@@ -26,7 +26,6 @@ function onClick(element) {
   //downloadText.onclick = window.location.href=download;
 }
 function downloadNow(){
-  ga('send', 'event', 'deltaskin', 'download', captionText);
   window.location.href=downloadLink;
 }
 var images;
