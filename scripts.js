@@ -31,6 +31,7 @@ var images;
 function loadImages(){
   images = Array.from(document.getElementsByTagName("img"))
   images.splice(-1,1)
+  sortBy("newold");
 }
 function filterSkinsSupport(filterType){
   for(i in images){
@@ -87,17 +88,58 @@ function includeLandscape(element){
 }
 function sortBy(sort){
   if (sort == "newold"){
-    images.sort(function(a,b){
+    var sortedImages = Array.from(document.getElementsByTagName("img"));
+    sortedImages.splice(-1,1);
+    sortedImages.sort(function(a,b){
       var contentA =parseInt(a.dataset.added,10);
       var contentB =parseInt(b.dataset.added,10);
       return (contentB - contentA);
     });
-    console.log(images);
+    var unsortedImages = Array.from(document.getElementsByTagName("img"));
+    unsortedImages.splice(-1,1);
+    const attrs = sortedImages.map(node => ({
+      src: node.src,
+      alt: node.alt,
+      download: node.dataset.download,
+      added: node.dataset.added,
+      supports: node.dataset.supports,
+      maker: node.dataset.maker,
+    }))
     
-    for(i in images){
-      console.log(images[i].dataset.added);
-      
-
-    }
+    attrs.forEach((item, i) => {
+      unsortedImages[i].src = item.src;
+      unsortedImages[i].alt = item.alt;
+      unsortedImages[i].dataset.download = item.download;
+      unsortedImages[i].dataset.added = item.added;
+      unsortedImages[i].dataset.supports = item.supports;
+      unsortedImages[i].dataset.maker = item.maker;
+    })
+  } else if (sort == "oldnew"){
+    var sortedImages = Array.from(document.getElementsByTagName("img"));
+    sortedImages.splice(-1,1);
+    sortedImages.sort(function(a,b){
+      var contentA =parseInt(a.dataset.added,10);
+      var contentB =parseInt(b.dataset.added,10);
+      return (contentA - contentB);
+    });
+    var unsortedImages = Array.from(document.getElementsByTagName("img"));
+    unsortedImages.splice(-1,1);
+    const attrs = sortedImages.map(node => ({
+      src: node.src,
+      alt: node.alt,
+      download: node.dataset.download,
+      added: node.dataset.added,
+      supports: node.dataset.supports,
+      maker: node.dataset.maker,
+    }))
+    
+    attrs.forEach((item, i) => {
+      unsortedImages[i].src = item.src;
+      unsortedImages[i].alt = item.alt;
+      unsortedImages[i].dataset.download = item.download;
+      unsortedImages[i].dataset.added = item.added;
+      unsortedImages[i].dataset.supports = item.supports;
+      unsortedImages[i].dataset.maker = item.maker;
+    })
   }
 }
