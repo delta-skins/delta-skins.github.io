@@ -28,49 +28,52 @@
     <script src="scripts.js"></script>
   </head>
   <style>
-      body,h1,h2,h3,h4,h5 {font-family: "Avenir Next", sans-serif}
-      .w3-third img{ padding: 2px; opacity: 1.0; cursor: pointer}
-      .w3-third img:hover{opacity: 1}
-      .skins img{padding:5px;cursor: pointer;width: 175px;height:auto;position: relative;}
-      .skins {position: relative;}
-      header {
-          opacity: 0.8;
-          background-color: black;
+    body,h1,h2,h3,h4,h5 {font-family: "Avenir Next", sans-serif}
+    .w3-third img{ padding: 2px; opacity: 1.0; cursor: pointer}
+    .w3-third img:hover{opacity: 1}
+    .skins img{padding:5px;cursor: pointer;width: 175px;height:auto;}
+    .skins {
+      position:absolute;
+      margin-left: auto;
+      margin-right: auto;}
+    header {
+        opacity: 0.8;
+        background-color: black;
+    }
+    .hideSupport{
+    display: none;
       }
-      .hideSupport{
-      display: none;
-        }
-        .hideCreator{
+    .hideCreator{
     display: none;
       }
       .hidePortrait{
         display:none;
       }
-      nav {
-          opacity: 0.8;
-          display:none;
-          background-color: black;
-      }
-      a.link{
-          text-decoration: none;
-      }
-      .w3-bar-item{
-          opacity: 1.0;
-      }
-      div.padding { background-color: transparent ;
-          margin: auto;
-          width: 100%;
-          padding: 10px}
-      html {
-          height: 100%;
-          background: rgb(111,14,199);
-          background: linear-gradient(126deg, rgba(111,14,199,1) 0%, rgba(255,255,255,1) 100%);
-          margin: 0;
-          background-repeat: no-repeat;
-          background-attachment: fixed;
-      }
-      
-      </style>
+    nav {
+        opacity: 0.8;
+        display:none;
+        background-color: black;
+    }
+    a.link{
+        text-decoration: none;
+    }
+    .w3-bar-item{
+        opacity: 1.0;
+    }
+    div.padding { background-color: transparent ;
+        margin: auto;
+        width: 100%;
+        padding: 10px}
+    html {
+        height: 100%;
+        background: rgb(111,14,199);
+        background: linear-gradient(126deg, rgba(111,14,199,1) 0%, rgba(255,255,255,1) 100%);
+        margin: 0;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    
+    </style>
       <body class="w3-light-purple w3-content " style="max-width:none" onLoad="loadImages()">
       <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5K45P8L"
@@ -113,10 +116,11 @@
       <div class="w3-main center padding">
       
       
-        <!-- Push down content on small screens --> 
+        <!-- Push down content --> 
         <div style="margin-top:83px"></div>
           <!--Filter selector -->
-          <div style="padding-bottom: 10px">
+          <div class="row" style="padding-bottom: 10px;width:100%;min-height: 40px">
+            <div class="column">
               <button type="button" class="w3-button w3-small w3-round-xlarge w3-padding-small" style="border-color: black; border-style: solid;background-color: black;color:white" onclick="showFilters(this)"><b>Show Filters</b></button>
               <div id="filters" style="display:none;" class='row'>
               <div class="row" style="display:table-cell;padding: 5px">
@@ -136,29 +140,41 @@
                 <option value="Zeskoto">Zeskoto</option>
                 <option value="yunginternet">yunginternet</option>
                 <option value="itephra">itephra</option>
-                </select>
-              </div>
-              <div class="row" style="display:table-cell;padding: 5px">
-                  <label for="checkid"  style="word-wrap:break-word">
-                   <input type="checkbox" name="landscape" onchange="includeLandscape(this)"> Includes landscape
+              </select>
+            </div>
+            <div class="row" style="padding: 5px">
+                  <label for="landscape"  style="word-wrap:break-word">
+                   <input id="landscape" type="checkbox" name="landscape" onchange="includeLandscape(this)"> Includes landscape
                   </label>
+              </div>
+              </div>
+            </div>
+            <div class="column">
+              <div style="position:relative;float:right;max-height: 1px;margin-right: 120px;clear:left;top:-42px">
+                <h5>Sort by:</h5>
+              </div>
+                <div style="float:right;position:relative;clear:right;top:-31px;margin-right: 10px">
+                <select id="sort" onchange="sortBy(this.value)">
+                <option value="newold">Newest first</option>
+                <option value="oldnew">Oldest first</option>
+                </select>
               </div>
               </div>
               </div>
   <!-- Console -->
  <div class="skins w3-center">
-          <img src="gbc/standard white buttons GBC.png" data-maker="Zeskoto" style="width:175px"data-supports="All phones + landscape"  onclick="onClick(this)" data-download="https://github.com/delta-skins/delta-skins.github.io/raw/master/gbc/Standard%20GBA%20for%20GBC%202.deltaskin" alt="Standard White Buttons GBC">
-          <img src="gbc/charmander GBC.png" data-maker="felix" data-supports="All phones + landscape"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gbc/CharmanderGBC.deltaskin' alt="Charmander GBC">
-          <img src="gbc/poke_GBC.png" data-maker="Hornet" data-supports="All phones"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gbc/Pikachu_Editon_GBC_Ver._2.deltaskin' alt="Pikachu GBC">
-          <img src="gbc/bulbGBC.png" data-maker="felix" data-landscape="gbc/bulblandGBC.png" data-supports="All phones + landscape"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gbc/BulbasaurGBC.deltaskin' alt="Bulbasaur GBC">
-          <img src="gbc/squirtleGBC.png" data-maker="felix" data-supports="All phones + landscape"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gbc/SquirtleGBC.deltaskin' alt="Squirtle GBC">
-          <img src="gbc/awakeningGBC.png" data-maker="Hornet" data-supports="All phones"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gbc/Awakening_GBC.deltaskin' alt="Awakening GBC">
-          <img src="gbc/PikaPowerGBC.png" data-maker="Hornet" data-supports="All phones"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gbc/Pika_Power_GBC.deltaskin' alt="Pika Power GBC">
-          <img src="gbc/pichuGBC.png" data-maker="Hornet" data-supports="All phones"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gbc/Pichu_Color.deltaskin' alt="Pichu Color GBC">
-          <img src="gbc/DMGGBC.png" data-maker="yunginternet" data-supports="All phones + landscape"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gbc/DMG_01.deltaskin' alt="DMG GBC">
-          <img src="gbc/originalGBC.png" data-maker="itephra" data-supports="iPhone X and newer"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gbc/itephra_GBC.deltaskin' alt="Original Gameboy GBC">
-          <img src="gbc/thegreatwaveGBC.png" data-maker="Hornet" data-supports="All phones"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gbc/The%20Great%20WaveGBC.deltaskin' alt="The Great Wave GBC">
-          <img src="gbc/quaggangGBC.png" data-maker="Zeskoto" data-supports="All phones + landscape"  onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gbc/Quag%20Gang.deltaskin' alt="Quag Gang GBC">
+          <img src="gbc/standard white buttons GBC.png" data-maker="Zeskoto" style="width:175px" data-supports="All phones + landscape"  data-added="1" onclick="onClick(this)" data-download="https://github.com/delta-skins/delta-skins.github.io/raw/master/gbc/Standard%20GBA%20for%20GBC%202.deltaskin" alt="Standard White Buttons GBC">
+          <img src="gbc/charmander GBC.png" data-maker="felix" data-supports="All phones + landscape"  data-added="2" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gbc/CharmanderGBC.deltaskin' alt="Charmander GBC">
+          <img src="gbc/poke_GBC.png" data-maker="Hornet" data-supports="All phones"  data-added="3" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gbc/Pikachu_Editon_GBC_Ver._2.deltaskin' alt="Pikachu GBC">
+          <img src="gbc/bulbGBC.png" data-maker="felix" data-landscape="gbc/bulblandGBC.png" data-supports="All phones + landscape"  data-added="4" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gbc/BulbasaurGBC.deltaskin' alt="Bulbasaur GBC">
+          <img src="gbc/squirtleGBC.png" data-maker="felix" data-supports="All phones + landscape"  data-added="5" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gbc/SquirtleGBC.deltaskin' alt="Squirtle GBC">
+          <img src="gbc/awakeningGBC.png" data-maker="Hornet" data-supports="All phones"  data-added="6" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gbc/Awakening_GBC.deltaskin' alt="Awakening GBC">
+          <img src="gbc/PikaPowerGBC.png" data-maker="Hornet" data-supports="All phones"  data-added="7" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gbc/Pika_Power_GBC.deltaskin' alt="Pika Power GBC">
+          <img src="gbc/pichuGBC.png" data-maker="Hornet" data-supports="All phones"  data-added="8" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gbc/Pichu_Color.deltaskin' alt="Pichu Color GBC">
+          <img src="gbc/DMGGBC.png" data-maker="yunginternet" data-supports="All phones + landscape"  data-added="9" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gbc/DMG_01.deltaskin' alt="DMG GBC">
+          <img src="gbc/originalGBC.png" data-maker="itephra" data-supports="iPhone X and newer"  data-added="10" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gbc/itephra_GBC.deltaskin' alt="Original Gameboy GBC">
+          <img src="gbc/thegreatwaveGBC.png" data-maker="Hornet" data-supports="All phones"  data-added="11" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gbc/The%20Great%20WaveGBC.deltaskin' alt="The Great Wave GBC">
+          <img src="gbc/quaggangGBC.png" data-maker="Zeskoto" data-supports="All phones + landscape"  data-added="11" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gbc/Quag%20Gang.deltaskin' alt="Quag Gang GBC">
           
           <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
             <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>

@@ -28,49 +28,52 @@
     <script src="scripts.js"></script>
   </head>
   <style>
-      body,h1,h2,h3,h4,h5 {font-family: "Avenir Next", sans-serif}
-      .w3-third img{ padding: 2px; opacity: 1.0; cursor: pointer}
-      .w3-third img:hover{opacity: 1}
-      .skins img{padding:5px;cursor: pointer;width: 175px;height:auto;position: relative;}
-      .skins {position: relative;}
-      header {
-          opacity: 0.8;
-          background-color: black;
+    body,h1,h2,h3,h4,h5 {font-family: "Avenir Next", sans-serif}
+    .w3-third img{ padding: 2px; opacity: 1.0; cursor: pointer}
+    .w3-third img:hover{opacity: 1}
+    .skins img{padding:5px;cursor: pointer;width: 175px;height:auto;}
+    .skins {
+      position:absolute;
+      margin-left: auto;
+      margin-right: auto;}
+    header {
+        opacity: 0.8;
+        background-color: black;
+    }
+    .hideSupport{
+    display: none;
       }
-      .hideSupport{
-      display: none;
-        }
-        .hideCreator{
+    .hideCreator{
     display: none;
       }
       .hidePortrait{
         display:none;
       }
-      nav {
-          opacity: 0.8;
-          display:none;
-          background-color: black;
-      }
-      a.link{
-          text-decoration: none;
-      }
-      .w3-bar-item{
-          opacity: 1.0;
-      }
-      div.padding { background-color: transparent ;
-          margin: auto;
-          width: 100%;
-          padding: 10px}
-      html {
-          height: 100%;
-          background: rgb(111,14,199);
-          background: linear-gradient(126deg, rgba(111,14,199,1) 0%, rgba(255,255,255,1) 100%);
-          margin: 0;
-          background-repeat: no-repeat;
-          background-attachment: fixed;
-      }
-      
-      </style>
+    nav {
+        opacity: 0.8;
+        display:none;
+        background-color: black;
+    }
+    a.link{
+        text-decoration: none;
+    }
+    .w3-bar-item{
+        opacity: 1.0;
+    }
+    div.padding { background-color: transparent ;
+        margin: auto;
+        width: 100%;
+        padding: 10px}
+    html {
+        height: 100%;
+        background: rgb(111,14,199);
+        background: linear-gradient(126deg, rgba(111,14,199,1) 0%, rgba(255,255,255,1) 100%);
+        margin: 0;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    
+    </style>
       <body class="w3-light-purple w3-content " style="max-width:none" onLoad="loadImages()">
       <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5K45P8L"
@@ -115,7 +118,8 @@
         <!-- Push down content on small screens --> 
         <div style="margin-top:83px"></div>
           <!--Filter selector -->
-          <div style="padding-bottom: 10px">
+          <div class="row" style="padding-bottom: 10px;width:100%;min-height: 40px">
+            <div class="column">
               <button type="button" class="w3-button w3-small w3-round-xlarge w3-padding-small" style="border-color: black; border-style: solid;background-color: black;color:white" onclick="showFilters(this)"><b>Show Filters</b></button>
               <div id="filters" style="display:none;" class='row'>
               <div class="row" style="display:table-cell;padding: 5px">
@@ -130,22 +134,42 @@
               <h5>Creators:</h5>
               <select onchange="filterSkinsCreator(this.value)">
                 <option value="">No filter</option>
-                <option value="Ruben">Ruben</option>
-                  <option value="Hornet">Hornet</option>
+                <option value="new">iPhone X and newer</option>
+                <option value="old">iPhone 8 and older</option>
               </select>
               </div>
               <div class="row" style="display:table-cell;padding: 5px">
-                  <label for="checkid"  style="word-wrap:break-word">
-                   <input type="checkbox" name="landscape" onchange="includeLandscape(this)"> Includes landscape
-                  </label>
+              <h5>Creators:</h5>
+              <select onchange="filterSkinsCreator(this.value)">
+                <option value="">No filter</option>
+                <option value="Ruben">Ruben</option>
+                  <option value="Hornet">Hornet</option>
+                </select>
               </div>
+              <div class="row" style="padding: 5px">
+                    <label for="landscape"  style="word-wrap:break-word">
+                     <input id="landscape" type="checkbox" name="landscape" onchange="includeLandscape(this)"> Includes landscape
+                    </label>
+                </div>
+                </div>
               </div>
-              </div>
+              <div class="column">
+                <div style="position:relative;float:right;max-height: 1px;margin-right: 120px;clear:left;top:-42px">
+                  <h5>Sort by:</h5>
+                </div>
+                  <div style="float:right;position:relative;clear:right;top:-31px;margin-right: 10px">
+                  <select id="sort" onchange="sortBy(this.value)">
+                  <option value="newold">Newest first</option>
+                  <option value="oldnew">Oldest first</option>
+                  </select>
+                </div>
+                </div>
+                </div>
   <!-- Console -->
  <div class="skins w3-center">
-    <img src="nes/tetris nes.png" data-maker="Ruben" data-supports="iPhone 8 or older" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/nes/Tetris%20Theme.deltaskin' alt="Tetris NES">
-    <img src="nes/nesimpleNES.png" data-maker="Ruben" data-supports="All phones" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/nes/NESimple.deltaskin' alt="NESimple NES">
-    <img src="nes/impressionsunriseNES.png" data-maker="Hornet" data-supports="All phones" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/nes/Impression%20SunriseNES.deltaskin' alt="Impression Sunrise NES">
+    <img src="nes/tetris nes.png" data-maker="Ruben" data-supports="iPhone 8 or older" data-added="1" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/nes/Tetris%20Theme.deltaskin' alt="Tetris NES">
+    <img src="nes/nesimpleNES.png" data-maker="Ruben" data-supports="All phones" data-added="2" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/nes/NESimple.deltaskin' alt="NESimple NES">
+    <img src="nes/impressionsunriseNES.png" data-maker="Hornet" data-supports="All phones" data-added="3" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/nes/Impression%20SunriseNES.deltaskin' alt="Impression Sunrise NES">
 
 
     <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
