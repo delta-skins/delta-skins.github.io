@@ -26,10 +26,27 @@ function onClick(element) {
   //downloadText.onclick = window.location.href=download;
 }
 function downloadNow(){
-  window.location.href=downloadLink;
+  var url = decodeURIComponent(window.location.href).toString();
+  if ((url.indexOf("?") > -1)){
+     indexOfQ = url.indexOf("?");
+    if (indexOfQ > 0)
+       url = url.substring(0, indexOfQ);
+  }
+        url = url + '?name=' + downloadLink;
+        document.location.href = url;
+}
+  //window.location.href=downloadLink;
+  function trackedDownload() {
+    var url = decodeURIComponent(document.location.href)
+    if (url.indexOf("?") > -1){
+        params = url.split('?')
+        console.log(params);
+        goDownload = params[1].toString();
+        document.location.href = goDownload.substring(5,goDownload.length);
 }
 var images;
 function loadImages(){
+  trackedDownload();
   images = Array.from(document.getElementsByTagName("img"))
   images.splice(-1,1)
   sortBy("newold");
