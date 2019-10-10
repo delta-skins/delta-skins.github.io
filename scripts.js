@@ -48,6 +48,7 @@ function downloadNow(){
 var images;
 function loadImages(){
   trackedDownload();
+  storageData();
   images = Array.from(document.getElementsByTagName("img"))
   images.splice(-1,1)
   sortBy("newold");
@@ -160,5 +161,13 @@ function sortBy(sort){
       unsortedImages[i].dataset.supports = item.supports;
       unsortedImages[i].dataset.maker = item.maker;
     })
+  }
+}
+function storageData(){
+  if (typeof(Storage) !== "undefined") {
+    // Code for localStorage/sessionStorage.
+    
+  } else {
+    // Sorry! No Web Storage support..
   }
 }
