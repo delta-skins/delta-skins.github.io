@@ -9,13 +9,14 @@ function w3_close() {
   document.getElementById("myOverlay").style.display = "none";
 }
 var downloadLink;
+var captionText;
 function onClick(element) {
   document.getElementById("img01").src = element.src;
   document.getElementById("modal01").style.display = "block";
   var creatorText = document.getElementById("creator");
   var maker = element.getAttribute("data-maker");
   creatorText.innerHTML = maker;
-  var captionText = document.getElementById("caption");
+  captionText = document.getElementById("caption");
   captionText.innerHTML = element.alt;
   var supportsText = document.getElementById("supports");
   var supports = element.getAttribute("data-supports");
@@ -25,6 +26,7 @@ function onClick(element) {
   //downloadText.onclick = window.location.href=download;
 }
 function downloadNow(){
+  ga('send', 'event', 'deltaskin', 'download', captionText);
   window.location.href=downloadLink;
 }
 var images;
