@@ -43,7 +43,8 @@ function downloadNow(){
         console.log(params);
         goDownload = params[1].toString();
         document.location.href = goDownload.substring(5,goDownload.length);
-}
+    }
+  }
 var images;
 function loadImages(){
   trackedDownload();
