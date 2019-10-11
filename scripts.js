@@ -22,7 +22,7 @@ function onClick(element) {
   firebaseOpen(element);
   var modalImg = document.getElementById("img01");
   modalImg.src = element.src;
-  modalImg.style.maxHeight = "400px";
+  modalImg.style.maxWidth = "220px";
   document.getElementById("modal01").style.display = "block";
   var creatorText = document.getElementById("creator");
   var maker = element.getAttribute("data-maker");
