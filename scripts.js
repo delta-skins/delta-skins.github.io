@@ -3,7 +3,9 @@ var database;
 var downloadLink;
 var captionText;
 var images;
-
+var skinsLikes;
+var consolesLikes;
+var firebaseConnection = false;
 
 // Script to open and close sidebar
 function w3_open() {
@@ -17,6 +19,7 @@ function w3_close() {
 }
 
 function onClick(element) {
+  firebaseOpen(element);
   document.getElementById("img01").src = element.src;
   document.getElementById("modal01").style.display = "block";
   var creatorText = document.getElementById("creator");
@@ -203,20 +206,26 @@ function liked(element){
       firebaseUpdate("1",element);
     }
   }
-
-function firebaseUpdate(updateNum, element){
-  var skinsLikes;
-  var consolesLikes;
-  //gets current console
+function firebaseOpen(element){
+  if (!firebaseConnection){
+    //gets current console
   var consoleType = window.location.pathname;
   consoleType = consoleType.split("/").pop().split(".").splice(0,1).toString();
   //pulls current likes for selected skin
   consolesLikes = firebase.database().ref(consoleType);
-  consolesLikes.on("value", function(data, prevChildKey) {
+  consolesLikes.on("value", function(data) {
     var consolesSkins = data.val();
-    skinsLikes = consolesSkins[element.dataset.skinname];
-    console.log("Current likes: " + skinsLikes);
- });
+    skinsLikes = consolesSkins[element.alt];
+   });}
+   setTimeout(function(){
+     if (skinsLikes == undefined){
+    console.log("Current likes of " + element.alt + " is 0");
+   } else {
+    console.log("Current likes of " + element.alt + " is " + skinsLikes);
+    }},150);
+}
+
+function firebaseUpdate(updateNum, element){
  //if skin isn't in database, add it
     if (skinsLikes == undefined){
       consolesLikes.update ({
@@ -233,5 +242,6 @@ function firebaseUpdate(updateNum, element){
         [element.dataset.skinname]: skinsLikes
       })
     }
+    console.log("Current likes of " + element.dataset.skinname + " is " + skinsLikes);
   
 }
