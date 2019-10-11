@@ -215,7 +215,7 @@ function firebaseUpdate(updateNum, element){
   consolesLikes.on("value", function(data, prevChildKey) {
     var consolesSkins = data.val();
     skinsLikes = consolesSkins[element.dataset.skinname];
-    console.log("skinsLikes: " + skinsLikes);
+    console.log("Current likes: " + skinsLikes);
  });
  //if skin isn't in database, add it
     if (skinsLikes == undefined){
