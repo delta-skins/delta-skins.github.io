@@ -170,22 +170,46 @@
     <img src="snes/sunflowersSNES.png" data-maker="Hornet" data-supports="All phones" data-added="3" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/snes/SunflowersSNES.deltaskin' alt="Sunflower SNES">
     <img src="snes/darkSNES.png" data-maker="Anonymaus" data-supports="All phones" data-added="4" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/snes/DarkSN.deltaskin' alt="Dark SNES">
 
-          <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
-            <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
-            <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-              <img id="img01" class="w3-image">
-              <h4 id="caption"></h4>
-              <p>Devices supported:</p>
-              <p id="supports"></p>
-              <p>Created by:</p>
-              <p id="creator"></p>
-              <br>
-              <button id="download" type="submit" onclick="downloadNow()">Download now</button>
-            </div>
-          </div>
-        
-</div>
+           <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0">
+    <span class="w3-button w3-xlarge"onclick="closeModal()">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image"onclick="closeModal()">
+      <h4 id="caption"></h4>
+      <p>Devices supported:</p>
+      <p id="supports"></p>
+      <p>Created by:</p>
+      <p id="creator"></p>
+      <br>
+      <button id="download" type="submit" onclick="downloadNow();">Download now</button>
+      <img id="likeButton" data-skinname="" onclick="liked(this)" src="logos/notliked.png" style="background-color: transparent;max-width: 40px;max-height: 40px;display:none">
+    </div>
+  </div>
 <!-- End page content -->
 </div>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+       <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-database.js"></script>
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyDUCeoBidHP45PhREHJETEfZLKjRde05mg",
+      authDomain: "delta-skins.firebaseapp.com",
+      databaseURL: "https://delta-skins.firebaseio.com",
+      projectId: "delta-skins",
+      storageBucket: "delta-skins.appspot.com",
+      messagingSenderId: "166750671463",
+      appId: "1:166750671463:web:a3fd7b8233872440803ac2",
+      measurementId: "G-R4JVB51PB1"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
 </body>
 </html>

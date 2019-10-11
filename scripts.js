@@ -1,3 +1,10 @@
+//global variables
+var database;
+var downloadLink;
+var captionText;
+var images;
+
+
 // Script to open and close sidebar
 function w3_open() {
   document.getElementById("mySidebar").style.display = "block";
@@ -8,8 +15,7 @@ function w3_close() {
   document.getElementById("mySidebar").style.display = "none";
   document.getElementById("myOverlay").style.display = "none";
 }
-var downloadLink;
-var captionText;
+
 function onClick(element) {
   document.getElementById("img01").src = element.src;
   document.getElementById("modal01").style.display = "block";
@@ -23,8 +29,20 @@ function onClick(element) {
   supportsText.innerHTML = supports;
   var downloadText = document.getElementsByTagName("button");
   downloadLink = element.getAttribute("data-download");
-  //downloadText.onclick = window.location.href=download;
-}
+  if (typeof(Storage) !== "undefined") {
+    // Code for localStorage/sessionStorage.
+    var likeButton = document.getElementById("likeButton");
+    likeButton.dataset.skinname = element.alt;
+    likeButton.style.display = "";
+    
+      if(localStorage[element.alt]=="1"){
+        likeButton.src="logos/liked.png"
+      } else {
+        likeButton.src="logos/notliked.png"
+      }
+    }
+  }
+
 function downloadNow(){
   var url = decodeURIComponent(window.location.href).toString();
   if ((url.indexOf("?") > -1)){
@@ -40,15 +58,19 @@ function downloadNow(){
     var url = decodeURIComponent(document.location.href)
     if (url.indexOf("?") > -1){
         params = url.split('?')
-        console.log(params);
         goDownload = params[1].toString();
+        //start of custom creator URLs
+        if(goDownload.includes("http")){
         document.location.href = goDownload.substring(5,goDownload.length);
+        }
     }
   }
-var images;
+
 function loadImages(){
+  //checks to see if URL has a ? after .html, if it does it does things with it
   trackedDownload();
-  storageData();
+  database = firebase.database();
+  //pulls all imgs into images array.
   images = Array.from(document.getElementsByTagName("img"))
   images.splice(-1,1)
   sortBy("newold");
@@ -163,11 +185,53 @@ function sortBy(sort){
     })
   }
 }
-function storageData(){
-  if (typeof(Storage) !== "undefined") {
-    // Code for localStorage/sessionStorage.
-    
-  } else {
-    // Sorry! No Web Storage support..
+
+function closeModal(){
+  document.getElementById("modal01").style.display = "none";
+}
+//localStore == 1 is liked, 0 is not liked/unliked
+function liked(element){
+    if (localStorage[element.dataset.skinname] == "1"){
+      //unlike the skin
+      element.src = "logos/notliked.png";
+      localStorage[element.dataset.skinname] = "0";
+      firebaseUpdate("0",element);
+    } else {
+      //like the skin
+      element.src = "logos/liked.png";
+      localStorage[element.dataset.skinname] = "1";
+      firebaseUpdate("1",element);
+    }
   }
+
+function firebaseUpdate(updateNum, element){
+  var skinsLikes;
+  var consolesLikes;
+  //gets current console
+  var consoleType = window.location.pathname;
+  consoleType = consoleType.split("/").pop().split(".").splice(0,1).toString();
+  //pulls current likes for selected skin
+  consolesLikes = firebase.database().ref(consoleType);
+  consolesLikes.on("value", function(data, prevChildKey) {
+    var consolesSkins = data.val();
+    skinsLikes = consolesSkins[element.dataset.skinname];
+    console.log("skinsLikes: " + skinsLikes);
+ });
+ //if skin isn't in database, add it
+    if (skinsLikes == undefined){
+      consolesLikes.update ({
+        [element.dataset.skinname]: 1
+      })
+    } else if (updateNum == "1"){
+      skinsLikes++;
+      consolesLikes.update ({
+        [element.dataset.skinname]: skinsLikes
+      })
+    } else if (updateNum == "0"){
+      skinsLikes--;
+      consolesLikes.update ({
+        [element.dataset.skinname]: skinsLikes
+      })
+    }
+  
 }
