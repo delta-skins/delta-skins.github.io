@@ -44,7 +44,6 @@ function onClick(element) {
         likeButton.src="logos/notliked.png"
       }
     }
-    console.log(element);
   }
 
 function downloadNow(){
