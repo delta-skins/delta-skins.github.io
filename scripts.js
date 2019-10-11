@@ -18,12 +18,24 @@ function onClick(element) {
   creatorText.innerHTML = maker;
   captionText = document.getElementById("caption");
   captionText.innerHTML = element.alt;
+  
   var supportsText = document.getElementById("supports");
   var supports = element.getAttribute("data-supports");
   supportsText.innerHTML = supports;
   var downloadText = document.getElementsByTagName("button");
   downloadLink = element.getAttribute("data-download");
-  //downloadText.onclick = window.location.href=download;
+  if (typeof(Storage) !== "undefined") {
+    // Code for localStorage/sessionStorage.
+    var likeButton = document.getElementById("likeButton");
+    likeButton.dataset.skinname = element.alt;
+    likeButton.style.display = "";
+    localStorage.captionText="1";
+    if (localStorage.captionText){
+      if(localStorage.captionText=="1"){
+        likeButton.src="logos/liked.png"
+      }
+    }
+  }
 }
 function downloadNow(){
   var url = decodeURIComponent(window.location.href).toString();
@@ -48,9 +60,9 @@ function downloadNow(){
 var images;
 function loadImages(){
   trackedDownload();
-  storageData();
+  firebase();
   images = Array.from(document.getElementsByTagName("img"))
-  images.splice(-1,1)
+  images.splice(-2,2);
   sortBy("newold");
 }
 function filterSkinsSupport(filterType){
@@ -109,14 +121,14 @@ function includeLandscape(element){
 function sortBy(sort){
   if (sort == "newold"){
     var sortedImages = Array.from(document.getElementsByTagName("img"));
-    sortedImages.splice(-1,1);
+    sortedImages.splice(-2,2);
     sortedImages.sort(function(a,b){
       var contentA =parseInt(a.dataset.added,10);
       var contentB =parseInt(b.dataset.added,10);
       return (contentB - contentA);
     });
     var unsortedImages = Array.from(document.getElementsByTagName("img"));
-    unsortedImages.splice(-1,1);
+    unsortedImages.splice(-2,2);
     const attrs = sortedImages.map(node => ({
       src: node.src,
       alt: node.alt,
@@ -136,14 +148,14 @@ function sortBy(sort){
     })
   } else if (sort == "oldnew"){
     var sortedImages = Array.from(document.getElementsByTagName("img"));
-    sortedImages.splice(-1,1);
+    sortedImages.splice(-2,2);
     sortedImages.sort(function(a,b){
       var contentA =parseInt(a.dataset.added,10);
       var contentB =parseInt(b.dataset.added,10);
       return (contentA - contentB);
     });
     var unsortedImages = Array.from(document.getElementsByTagName("img"));
-    unsortedImages.splice(-1,1);
+    unsortedImages.splice(-2,2);
     const attrs = sortedImages.map(node => ({
       src: node.src,
       alt: node.alt,
@@ -163,11 +175,18 @@ function sortBy(sort){
     })
   }
 }
-function storageData(){
-  if (typeof(Storage) !== "undefined") {
-    // Code for localStorage/sessionStorage.
-    
-  } else {
-    // Sorry! No Web Storage support..
-  }
+function firebase(){
+  // Initialize Cloud Firestore through Firebase
+firebase.initializeApp({
+  apiKey: 'AIzaSyDUCeoBidHP45PhREHJETEfZLKjRde05mg',
+  authDomain: 'delta-skins.firebaseapp.com',
+  projectId: 'delta-skins'
+});
+var db = firebase.firestore();
+}
+function closeModal(){
+  document.getElementById("modal01").style.display = "none";
+}
+function liked(element){
+  
 }
