@@ -44,6 +44,7 @@ function onClick(element) {
         likeButton.src="logos/notliked.png"
       }
     }
+    console.log(element);
   }
 
 function downloadNow(){
@@ -77,9 +78,18 @@ function loadImages(){
   database = firebase.database();
   //pulls all imgs into images array.
   images = Array.from(document.getElementsByTagName("img"))
-  images.splice(-1,1)
+  images.splice(-2,2)
   sortBy("newold");
   trackedDownload();
+}
+function showFilters(element){
+  if (element.innerHTML=="<b>Show Filters</b>"){
+  document.getElementById("filters").style.display="block";
+  element.innerHTML = "<b>Hide Filters</b>"
+} else{
+  document.getElementById("filters").style.display="none";
+  element.innerHTML = "<b>Show Filters</b>"
+  }
 }
 function filterSkinsSupport(filterType){
   for(i in images){
@@ -99,15 +109,7 @@ function filterSkinsSupport(filterType){
   }
 }
 }
-function showFilters(element){
-  if (element.innerHTML=="<b>Show Filters</b>"){
-  document.getElementById("filters").style.display="block";
-  element.innerHTML = "<b>Hide Filters</b>"
-} else{
-  document.getElementById("filters").style.display="none";
-  element.innerHTML = "<b>Show Filters</b>"
-}
-}
+
 function filterSkinsCreator(filterType){
   
   for(i in images){
@@ -137,14 +139,14 @@ function includeLandscape(element){
 function sortBy(sort){
   if (sort == "newold"){
     var sortedImages = Array.from(document.getElementsByTagName("img"));
-    sortedImages.splice(-1,1);
+    sortedImages.splice(-2,2);
     sortedImages.sort(function(a,b){
       var contentA =parseInt(a.dataset.added,10);
       var contentB =parseInt(b.dataset.added,10);
       return (contentB - contentA);
     });
     var unsortedImages = Array.from(document.getElementsByTagName("img"));
-    unsortedImages.splice(-1,1);
+    unsortedImages.splice(-2,2);
     const attrs = sortedImages.map(node => ({
       src: node.src,
       alt: node.alt,
@@ -224,9 +226,9 @@ function firebaseOpen(element){
    //timeout makes sure it gets the value before its printed in console
    setTimeout(function(){
      if (skinsLikes == undefined){
-    console.log("Current likes of " + element.alt + " is 0");
+    console.log("Current likes for " + element.alt + " is 0");
    } else {
-    console.log("Current likes of " + element.alt + " is " + skinsLikes);
+    console.log("Current likes for " + element.alt + " is " + skinsLikes);
     }},150);
 }
 
