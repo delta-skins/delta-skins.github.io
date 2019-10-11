@@ -20,7 +20,9 @@ function w3_close() {
 
 function onClick(element) {
   firebaseOpen(element);
-  document.getElementById("img01").src = element.src;
+  var modalImg = document.getElementById("img01");
+  modalImg.src = element.src;
+  modalImg.style.maxHeight = "400px";
   document.getElementById("modal01").style.display = "block";
   var creatorText = document.getElementById("creator");
   var maker = element.getAttribute("data-maker");
