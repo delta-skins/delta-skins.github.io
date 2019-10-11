@@ -65,18 +65,21 @@ function downloadNow(){
         //start of custom creator URLs
         if(goDownload.includes("http")){
         document.location.href = goDownload.substring(5,goDownload.length);
+        } else {
+          filterSkinsCreator(goDownload);
+          document.getElementsByTagName("select")[1].value = goDownload;
         }
     }
   }
-
+//ran on page load
 function loadImages(){
   //checks to see if URL has a ? after .html, if it does it does things with it
-  trackedDownload();
   database = firebase.database();
   //pulls all imgs into images array.
   images = Array.from(document.getElementsByTagName("img"))
   images.splice(-1,1)
   sortBy("newold");
+  trackedDownload();
 }
 function filterSkinsSupport(filterType){
   for(i in images){
@@ -206,9 +209,10 @@ function liked(element){
       firebaseUpdate("1",element);
     }
   }
+  //opens firebase connection
 function firebaseOpen(element){
   if (!firebaseConnection){
-    //gets current console
+  //gets current console
   var consoleType = window.location.pathname;
   consoleType = consoleType.split("/").pop().split(".").splice(0,1).toString();
   //pulls current likes for selected skin
@@ -217,6 +221,7 @@ function firebaseOpen(element){
     var consolesSkins = data.val();
     skinsLikes = consolesSkins[element.alt];
    });}
+   //timeout makes sure it gets the value before its printed in console
    setTimeout(function(){
      if (skinsLikes == undefined){
     console.log("Current likes of " + element.alt + " is 0");
@@ -225,18 +230,31 @@ function firebaseOpen(element){
     }},150);
 }
 
+function firebaseSort(){
+//gets current console
+var consoleType = window.location.pathname;
+consoleType = consoleType.split("/").pop().split(".").splice(0,1).toString();
+//pulls current likes for selected skin
+consolesLikes = firebase.database().ref(consoleType);
+consolesLikes.once("value", function(data) {
+  var consolesSkins = data.val();
+  for(i in consolesSkins){
+    console.log(consolesSkins[i]);
+} });
+}
+
 function firebaseUpdate(updateNum, element){
  //if skin isn't in database, add it
     if (skinsLikes == undefined){
       consolesLikes.update ({
         [element.dataset.skinname]: 1
       })
-    } else if (updateNum == "1"){
+    } else if (updateNum == "1"){ //increase like by 1
       skinsLikes++;
       consolesLikes.update ({
         [element.dataset.skinname]: skinsLikes
       })
-    } else if (updateNum == "0"){
+    } else if (updateNum == "0"){ //decrease like by 1
       skinsLikes--;
       consolesLikes.update ({
         [element.dataset.skinname]: skinsLikes
