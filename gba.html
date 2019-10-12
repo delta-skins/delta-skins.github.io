@@ -80,6 +80,11 @@
     .w3-bar-item{
         opacity: 1.0;
     }
+    .selectedSkin{
+      float:left;
+      top: 20px;
+      max-width: 200px;
+    }
     div.padding { background-color: transparent ;
         margin: auto;
         width: 100%;
@@ -188,7 +193,7 @@
       </div>
       </div>
       <!--Skins-->
- <div class="skins w3-center">
+ <div id="skinsList" class="skins w3-center">
      <img src="gba/darkmodegba pic.png" data-maker="Vustom" data-supports="All phones" data-added="1" onclick="onClick(this)" data-download="https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Dark%20Mode%20GBA.deltaskin" alt="Dark Mode GBA">
      <img src="gba/grey standard gba.png" data-maker="Helbrecht" data-supports="All phones + landscape" data-added="2" onclick="onClick(this)" data-download="https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Standard%20GBA%20Gray.deltaskin" alt="Grey Standard GBA">
      <img src="gba/switch gba.png" data-maker="Zeskotzo" data-supports="iPhone 8 and older"  data-added="3" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Switch.deltaskin' alt="Switch GBA">
@@ -219,14 +224,15 @@
       <!--End skins-->
       
        <!-- Modal for full size images on click-->
-  <div id="modal01" class="w3-modal w3-black" style="padding-top:0">
-    <span class="w3-button w3-xlarge w3-right"onclick="closeModal()">×</span>
-    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-      <img id="img01" class="w3-image"onclick="closeModal()">
-      <h4 id="caption"></h4>
-      <p>Devices supported:</p>
+  <div id="selected" style="display:none;float:right" class="w3-center">
+    <div class="w3-row">
+    <span class="w3-button w3-xlarge w3-row"onclick="closeSelected()">&lt Back</span>
+    </div>
+    <div class="w3-center w3-row"style="top:-50px">
+    <h4 id="caption"></h4>
+      <p><b>Devices supported:</b></p>
       <p id="supports"></p>
-      <p>Created by:</p>
+      <p><b>Created by:</b></p>
       <p id="creator"></p>
       <br>
       <button id="download" type="submit" onclick="downloadNow();">Download now</button>

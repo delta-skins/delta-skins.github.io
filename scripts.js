@@ -20,10 +20,14 @@ function w3_close() {
 
 function onClick(element) {
   firebaseOpen(element);
-  var modalImg = document.getElementById("img01");
-  modalImg.src = element.src;
-  modalImg.style.maxWidth = "220px";
-  document.getElementById("modal01").style.display = "block";
+  for(i in images){
+    if(!(images[i]==element)){
+      images[i].classList.add("hideNotSelected")
+    }
+  }
+  element.classList.add("selectedSkin");
+  document.getElementById("skinsList").classList.remove("skins")
+  document.getElementById("selected").style.display = "block";
   var creatorText = document.getElementById("creator");
   var maker = element.getAttribute("data-maker");
   creatorText.innerHTML = maker;
@@ -79,7 +83,7 @@ function loadImages(){
   database = firebase.database();
   //pulls all imgs into images array.
   images = Array.from(document.getElementsByTagName("img"))
-  images.splice(-2,2)
+  images.splice(-1,1)
   sortBy("newold");
   trackedDownload();
 }
@@ -140,14 +144,14 @@ function includeLandscape(element){
 function sortBy(sort){
   if (sort == "newold"){
     var sortedImages = Array.from(document.getElementsByTagName("img"));
-    sortedImages.splice(-2,2);
+    sortedImages.splice(-1,1);
     sortedImages.sort(function(a,b){
       var contentA =parseInt(a.dataset.added,10);
       var contentB =parseInt(b.dataset.added,10);
       return (contentB - contentA);
     });
     var unsortedImages = Array.from(document.getElementsByTagName("img"));
-    unsortedImages.splice(-2,2);
+    unsortedImages.splice(-1,1);
     const attrs = sortedImages.map(node => ({
       src: node.src,
       alt: node.alt,
@@ -195,8 +199,13 @@ function sortBy(sort){
   }
 }
 
-function closeModal(){
-  document.getElementById("modal01").style.display = "none";
+function closeSelected(){
+  document.getElementById("skinsList").classList.add("skins")
+  document.getElementById("selected").style.display = "none";
+  for(i in images){
+    images[i].classList.remove("hideNotSelected");
+    images[i].classList.remove("selectedSkin");
+  }
 }
 //localStore == 1 is liked, 0 is not liked/unliked
 function liked(element){
