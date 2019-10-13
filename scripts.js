@@ -49,14 +49,7 @@ function onClick(element) {
   }
 
 function downloadNow(){
-  var url = decodeURIComponent(window.location.href).toString();
-  if ((url.indexOf("?") > -1)){
-     indexOfQ = url.indexOf("?");
-    if (indexOfQ > 0)
-       url = url.substring(0, indexOfQ);
-  }
-        url = url + '?name=' + downloadLink;
-        document.location.href = url;
+  window.location.href=downloadLink;	
 }
   //window.location.href=downloadLink;
   function trackedDownload() {
@@ -64,15 +57,10 @@ function downloadNow(){
     if (url.indexOf("?") > -1){
         params = url.split('?')
         goDownload = params[1].toString();
-        //start of custom creator URLs
-        if(goDownload.includes("http")){
-        document.location.href = goDownload.substring(5,goDownload.length);
-        } else {
           filterSkinsCreator(goDownload);
           document.getElementsByTagName("select")[1].value = goDownload;
-        }
+      }
     }
-  }
 //ran on page load
 function loadImages(){
   //checks to see if URL has a ? after .html, if it does it does things with it
