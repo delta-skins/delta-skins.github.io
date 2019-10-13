@@ -52,7 +52,7 @@ function downloadNow(){
   window.location.href=downloadLink;	
 }
   //window.location.href=downloadLink;
-  function trackedDownload() {
+  function customLinks() {
     var url = decodeURIComponent(document.location.href)
     if (url.indexOf("?") > -1){
         params = url.split('?')
@@ -69,7 +69,7 @@ function loadImages(){
   images = Array.from(document.getElementsByTagName("img"))
   images.splice(-2,2)
   sortBy("newold");
-  trackedDownload();
+  customLinks();
 }
 function showFilters(element){
   if (element.innerHTML=="<b>Show Filters</b>"){
