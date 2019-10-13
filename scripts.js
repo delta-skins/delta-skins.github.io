@@ -56,9 +56,9 @@ function downloadNow(){
     var url = decodeURIComponent(document.location.href)
     if (url.indexOf("?") > -1){
         params = url.split('?')
-        goDownload = params[1].toString();
-          filterSkinsCreator(goDownload);
-          document.getElementsByTagName("select")[1].value = goDownload;
+        customLink = params[1].toString();
+          filterSkinsCreator(customLink);
+          document.getElementsByTagName("select")[1].value = customLink;
       }
     }
 //ran on page load
