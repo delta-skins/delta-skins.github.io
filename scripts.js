@@ -220,7 +220,7 @@ function firebaseOpen(element){
     console.log("Current likes for " + element.alt + " is " + skinsLikes);
     }},150);
 }
-
+//sorts by most liked
 function firebaseSort(){
 //gets current console
 var consoleType = window.location.pathname;
