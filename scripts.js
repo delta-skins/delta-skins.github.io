@@ -5,7 +5,6 @@ var captionText;
 var images;
 var skinsLikes;
 var consolesLikes;
-var firebaseConnection = false;
 
 // Script to open and close sidebar
 function w3_open() {
@@ -180,9 +179,55 @@ function sortBy(sort){
       unsortedImages[i].dataset.supports = item.supports;
       unsortedImages[i].dataset.maker = item.maker;
     })
+  } else if (sort == "likes"){
+    var sortedImages = Array.from(document.getElementsByTagName("img"));
+    sortedImages.splice(-2,2);
+    //gets current console
+    var consoleType = window.location.pathname;
+    consoleType = consoleType.split("/").pop().split(".").splice(0,1).toString();
+    //pulls current likes for selected skin
+    consolesLikes = firebase.database().ref(consoleType);
+    var currentLikes;    
+    consolesLikes.once("value", function(data) {
+      var consolesSkins = data.val();
+      for(i in sortedImages){
+      currentLikes = consolesSkins[sortedImages[i].alt];
+      if (currentLikes == undefined){
+        currentLikes = "0";
+      } 
+      sortedImages[i].dataset.likes = currentLikes;
+      }
+      });
+    setTimeout(function(){
+      sortedImages.sort(function(a,b){
+        var contentA =parseInt(a.dataset.likes);
+        var contentB =parseInt(b.dataset.likes);
+        return (contentB - contentA);
+      });
+      var unsortedImages = Array.from(document.getElementsByTagName("img"));
+      unsortedImages.splice(-2,2);
+      const attrs = sortedImages.map(node => ({
+        src: node.src,
+        alt: node.alt,
+        download: node.dataset.download,
+        added: node.dataset.added,
+        supports: node.dataset.supports,
+        maker: node.dataset.maker,
+        likes: node.dataset.likes,
+      }))
+      
+      attrs.forEach((item, i) => {
+        unsortedImages[i].src = item.src;
+        unsortedImages[i].alt = item.alt;
+        unsortedImages[i].dataset.download = item.download;
+        unsortedImages[i].dataset.added = item.added;
+        unsortedImages[i].dataset.supports = item.supports;
+        unsortedImages[i].dataset.maker = item.maker;
+        unsortedImages[i].dataset.likes = item.likes;
+      })
+     },150);
   }
 }
-
 function closeModal(){
   document.getElementById("modal01").style.display = "none";
 }
@@ -202,16 +247,15 @@ function liked(element){
   }
   //opens firebase connection
 function firebaseOpen(element){
-  if (!firebaseConnection){
   //gets current console
   var consoleType = window.location.pathname;
   consoleType = consoleType.split("/").pop().split(".").splice(0,1).toString();
   //pulls current likes for selected skin
   consolesLikes = firebase.database().ref(consoleType);
-  consolesLikes.on("value", function(data) {
+  consolesLikes.once("value", function(data) {
     var consolesSkins = data.val();
     skinsLikes = consolesSkins[element.alt];
-   });}
+   });
    //timeout makes sure it gets the value before its printed in console
    setTimeout(function(){
      if (skinsLikes == undefined){
@@ -220,20 +264,6 @@ function firebaseOpen(element){
     console.log("Current likes for " + element.alt + " is " + skinsLikes);
     }},150);
 }
-//sorts by most liked
-function firebaseSort(){
-//gets current console
-var consoleType = window.location.pathname;
-consoleType = consoleType.split("/").pop().split(".").splice(0,1).toString();
-//pulls current likes for selected skin
-consolesLikes = firebase.database().ref(consoleType);
-consolesLikes.once("value", function(data) {
-  var consolesSkins = data.val();
-  for(i in consolesSkins){
-    console.log(consolesSkins[i]);
-} });
-}
-
 function firebaseUpdate(updateNum, element){
  //if skin isn't in database, add it
     if (skinsLikes == undefined){
