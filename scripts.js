@@ -16,7 +16,7 @@ function w3_close() {
   document.getElementById("myOverlay").style.display = "none";
 }
 function onClick(element) {
-  firebaseOpen(element.alt);
+  firebaseOpen(element);
   var modalImg = document.getElementById("img01");
   modalImg.src = element.src;
   modalImg.style.maxWidth = "220px";
@@ -97,11 +97,13 @@ function filterSkinsSupport(filterType){
 }
 
 function filterSkinsCreator(filterType){
-  
+  document.getElementById("sort").disabled = false;
+
   for(i in images){
     images[i].classList.remove("hideCreator");
   }
   if(filterType!=""){
+    document.getElementById("sort").disabled = true;
   for(i in images){
     if(!(images[i].getAttribute("data-maker").includes(filterType))){
       images[i].classList.add("hideCreator")
@@ -180,22 +182,22 @@ function sortBy(sort){
   } else if (sort == "likes"){
     var sortedImages = Array.from(document.getElementsByTagName("img"));
     sortedImages.splice(-2,2);
-    //gets current console
-    var consoleType = window.location.pathname;
-    consoleType = consoleType.split("/").pop().split(".").splice(0,1).toString();
     //pulls current likes for selected skin
-    consolesLikes = firebase.database().ref(consoleType);
     var currentLikes;    
-    consolesLikes.once("value", function(data) {
+    for(i in sortedImages){
+      if(!(sortedImages[i].classList.contains("hideCreator"))){
+    consolesLikes = firebase.database().ref(sortedImages[i].dataset.console);
+    consolesLikes.on("value", function(data) {
       var consolesSkins = data.val();
-      for(i in sortedImages){
+      console.log(consolesSkins)
+      console.log(sortedImages[i].alt)
       currentLikes = consolesSkins[sortedImages[i].alt];
       if (currentLikes == undefined){
         currentLikes = "0";
       } 
       sortedImages[i].dataset.likes = currentLikes;
-      }
       });
+    
     setTimeout(function(){
       sortedImages.sort(function(a,b){
         var contentA =parseInt(a.dataset.likes);
@@ -226,6 +228,8 @@ function sortBy(sort){
      },150);
   }
 }
+}
+}
 function closeModal(){
   document.getElementById("modal01").style.display = "none";
 }
@@ -245,21 +249,18 @@ function liked(element){
   }
   //opens firebase connection
 function firebaseOpen(element){
-  //gets current console
-  var consoleType = window.location.pathname;
-  consoleType = consoleType.split("/").pop().split(".").splice(0,1).toString();
   //pulls current likes for selected skin
-  consolesLikes = firebase.database().ref(consoleType);
+  consolesLikes = firebase.database().ref(element.dataset.console);
   consolesLikes.once("value", function(data) {
     var consolesSkins = data.val();
-    skinsLikes = consolesSkins[element];
+    skinsLikes = consolesSkins[element.alt];
    });
    //timeout makes sure it gets the value before its printed in console
    setTimeout(function(){
      if (skinsLikes == undefined){
-    console.log("Current likes for " + element + " is 0");
+    console.log("Current likes for " + element.alt + " is 0");
    } else {
-    console.log("Current likes for " + element + " is " + skinsLikes);
+    console.log("Current likes for " + element.alt + " is " + skinsLikes);
     }},150);
 }
 function firebaseUpdate(updateNum, element){
