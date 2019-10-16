@@ -11,14 +11,12 @@ function w3_open() {
   document.getElementById("mySidebar").style.display = "block";
   document.getElementById("myOverlay").style.display = "block";
 }
- 
 function w3_close() {
   document.getElementById("mySidebar").style.display = "none";
   document.getElementById("myOverlay").style.display = "none";
 }
-
 function onClick(element) {
-  firebaseOpen(element);
+  firebaseOpen(element.alt);
   var modalImg = document.getElementById("img01");
   modalImg.src = element.src;
   modalImg.style.maxWidth = "220px";
@@ -254,14 +252,14 @@ function firebaseOpen(element){
   consolesLikes = firebase.database().ref(consoleType);
   consolesLikes.once("value", function(data) {
     var consolesSkins = data.val();
-    skinsLikes = consolesSkins[element.alt];
+    skinsLikes = consolesSkins[element];
    });
    //timeout makes sure it gets the value before its printed in console
    setTimeout(function(){
      if (skinsLikes == undefined){
-    console.log("Current likes for " + element.alt + " is 0");
+    console.log("Current likes for " + element + " is 0");
    } else {
-    console.log("Current likes for " + element.alt + " is " + skinsLikes);
+    console.log("Current likes for " + element + " is " + skinsLikes);
     }},150);
 }
 function firebaseUpdate(updateNum, element){
