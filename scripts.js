@@ -98,7 +98,7 @@ function filterSkinsSupport(filterType){
 
 function filterSkinsCreator(filterType){
   document.getElementById("sort").disabled = false;
-
+  var validCreator = false;
   for(i in images){
     images[i].classList.remove("hideCreator");
   }
@@ -107,6 +107,14 @@ function filterSkinsCreator(filterType){
   for(i in images){
     if(!(images[i].getAttribute("data-maker").includes(filterType))){
       images[i].classList.add("hideCreator")
+    }else{
+      validCreator = true;
+    }
+  }
+  if(!validCreator){
+    window.alert("No creators found.");
+    for(i in images){
+      images[i].classList.remove("hideCreator");
     }
   }
   }
