@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>GBA Skins</title>
+<meta charset="UTF-8">
+
+<link rel="shortcut icon" href="logos/deltalogo.jpeg" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!--Embed data-->
+<meta property="og:title" content="Delta Skins - GBA" />
+<meta property="og:description" content="Easily download Delta Emulator GBA skins." />
+<meta property="og:image" content="https://delta-skins.github.io/logos/deltalogo.png" />
+<head>
+    <!--Adds home screen icon for idevices-->
+    <link rel="apple-touch-icon" href="/logos/deltalogo.png">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-149365146-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-149365146-1');
+</script>
+<script>
+  window['GoogleAnalyticsObject'] = 'ga';
+  window['ga'] = window['ga'] || function() {
+    (window['ga'].q = window['ga'].q || []).push(arguments)
+  };
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5K45P8L');</script>
+    <!-- End Google Tag Manager -->
+    <!--Loads delta-skins script file-->
+    <script src="scripts.js"></script>
+</head>
+<style>
+    body,h1,h2,h3,h4,h5 {font-family: "Avenir Next", sans-serif}
+    .w3-third img{ padding: 2px; opacity: 1.0; cursor: pointer}
+    .w3-third img:hover{opacity: 1}
+    /*makes sure skins aren't too big when the screenshot is too large*/
+    .skins img{padding:5px;cursor: pointer;width: 175px;height:auto;}
+    .skins {
+      position:absolute;
+      margin-left: auto;
+      margin-right: auto;}
+    header {
+        opacity: 0.8;
+        background-color: black;
+    }
+    /*Each of the hides hides images that don't fit the current filter type*/
+    .hideNotSelected{
+      display:none;
+    }
+    .hideSupport{
+    display: none;
+      }
+    .hideCreator{
+    display: none;
+    }
+    .hidePortrait{
+      display:none;
+    }
+    nav {
+        opacity: 0.8;
+        display:none;
+        background-color: black;
+    }
+    a.link{
+        text-decoration: none;
+    }
+    .w3-bar-item{
+        opacity: 1.0;
+    }
+    div.padding { background-color: transparent ;
+        margin: auto;
+        width: 100%;
+        padding: 10px}
+    html {
+        height: 100%;
+        background: rgb(111,14,199);
+        background: linear-gradient(126deg, rgba(111,14,199,1) 0%, rgba(255,255,255,1) 100%);
+        margin: 0;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    </style>
+    <body class="w3-light-purple w3-content" style="max-width:none" onLoad="loadImages()">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5K45P8L"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Sidebar/menu -->
+    <nav class=" w3-bar-block w3-white w3-animate-left w3-hide-large w3-sidebar  w3-top w3-center" style="z-index:3;width:300px;font-weight:bold;display:none;height:100%" id="mySidebar"><br>
+      <h3 class="w3-padding-64 w3-center"><a href="index.html" class="link"><b>Delta Skins</b></a></h3>
+      <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">CLOSE</a>
+      <a href="index.html" onclick="w3_close()" class="w3-bar-item w3-button">Home</a>
+      <a href="howto.html" onclick="w3_close()" class="w3-bar-item w3-button">How to</a>
+      <a href="gba.html" onclick="w3_close()" class="w3-bar-item w3-button">GBA</a>
+      <a href="gbc.html" onclick="w3_close()" class="w3-bar-item w3-button">GBC</a>
+      <a href="n64.html" onclick="w3_close()" class="w3-bar-item w3-button">N64</a>
+      <a href="snes.html" onclick="w3_close()" class="w3-bar-item w3-button">SNES</a>
+      <a href="nes.html" onclick="w3_close()" class="w3-bar-item w3-button">NES</a>
+      <a href="nds.html" onclick="w3_close()" class="w3-bar-item w3-button">NDS</a>
+    </nav>
+
+    <!-- Top menu on small screens -->
+    <header class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
+      <a href="index.html" class="w3-left w3-padding link">Delta Skins</a>
+      <div class="w3-hide-small w3-hide-medium  w3-center">
+      <a href="index.html" onclick="w3_close()" class="w3-bar-item w3-button">Home</a>
+      <a href="howto.html" onclick="w3_close()" class="w3-bar-item w3-button">How to</a>
+      <a href="gba.html" onclick="w3_close()" class="w3-bar-item w3-button">GBA</a>
+      <a href="gbc.html" onclick="w3_close()" class="w3-bar-item w3-button">GBC</a>
+      <a href="n64.html" onclick="w3_close()" class="w3-bar-item w3-button">N64</a>
+      <a href="snes.html" onclick="w3_close()" class="w3-bar-item w3-button">SNES</a>
+      <a href="nes.html" onclick="w3_close()" class="w3-bar-item w3-button">NES</a>
+      <a href="nds.html" onclick="w3_close()" class="w3-bar-item w3-button">NDS</a>
+      </div>
+      <a href="javascript:void(0)" class="w3-right w3-button w3-white w3-hide-large" onclick="w3_open()">☰</a>
+    </header>
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main padding">
+
+  <!-- Push down content on small screens -->
+
+  <div style="margin-top:83px"></div>
+
+  <!--Filter selector -->
+  <div class="row" style="padding-bottom: 10px;width:100%;min-height: 40px">
+    <div class="column">
+      <button type="button" class="w3-button w3-small w3-round-xlarge w3-padding-small" style="border-color: black; border-style: solid;background-color: black;color:white" onclick="showFilters(this)"><b>Show Filters</b></button>
+      <div id="filters" style="display:none;" class='row'>
+      <div class="row" style="display:table-cell;padding: 5px">
+        <h5>Supported devices:</h5>
+      <select onchange="filterSkinsSupport(this.value)">
+        <option value="all">No filter</option>
+        <option value="new">iPhone X and newer</option>
+        <option value="old">iPhone 8 and older</option>
+      </select>
+      </div>
+      <div class="row" style="display:table-cell;padding: 5px">
+      <h5>Creators:</h5>
+      <select onchange="filterSkinsCreator(this.value)">
+        <option value="">No filter</option>
+        <option value="Helbrecht">Helbrecht</option>
+        <option value="felix">felix</option>
+        <option value="Ruben">Ruben</option>
+        <option value="Zeskotzo">Zeskotzo</option>
+        <option value="Vustom">Vustom</option>
+        <option value="Hornet">Hornet</option>
+        <option value="Circa">Circa</option>
+        <option value="Drowsii">Drowsii</option>
+        <option value="itephra">itephra</option>
+      </select>
+    </div>
+    <div class="row" style="padding: 5px">
+          <label for="landscape"  style="word-wrap:break-word">
+           <input id="landscape" type="checkbox" name="landscape" onchange="includeLandscape(this)"> Includes landscape
+          </label>
+      </div>
+      </div>
+    </div>
+    <!--Sorting-->
+    <div class="column">
+      <div style="position:relative;float:right;max-height: 1px;margin-right: 125px;clear:left;top:-42px">
+        <h5>Sort by:</h5>
+      </div>
+        <div style="float:right;position:relative;clear:right;top:-31px;margin-right: 10px">
+        <select id="sort" onchange="sortBy(this.value)">
+        <option value="newold">Newest first</option>
+        <option value="oldnew">Oldest first</option>
+        <option value="likes">Most liked</option>
+        </select>
+      </div>
+      </div>
+      </div>
+      <!--Skins-->
+ <div class="skins w3-center">
+     <img src="gba/darkmodegba pic.png" data-maker="Vustom" data-supports="All phones" data-added="1" onclick="onClick(this)" data-download="https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Dark%20Mode%20GBA.deltaskin" alt="Dark Mode GBA">
+     <img src="gba/grey standard gba.png" data-maker="Helbrecht" data-supports="All phones + landscape" data-added="2" onclick="onClick(this)" data-download="https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Standard%20GBA%20Gray.deltaskin" alt="Grey Standard GBA">
+     <img src="gba/switch gba.png" data-maker="Zeskotzo" data-supports="iPhone 8 and older"  data-added="3" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Switch.deltaskin' alt="Switch GBA">
+     <img src="gba/whitegold gba.png" data-maker="Ruben" data-supports="All phones"  data-added="4" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/WhiteGold%20GBA.deltaskin' alt="White Gold GBA">
+     <img src="gba/Purple SP GBA.png" data-maker="felix"  data-supports="All phones + landscape" data-added="5" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/PurpleSP.deltaskin' alt="Purple SP GBA">
+     <img src="gba/cyan GBA.png" data-maker="Helbrecht" data-supports="All phones + landscape" data-added="6" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Standard%20GBA%20Cyan.deltaskin' alt="Standard cyan GBA">
+     <img src="gba/gold GBA.png" data-maker="Helbrecht" data-supports="All phones + landscape" data-added="7" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Standard%20GBA%20Gold.deltaskin' alt="Standard gold GBA">
+     <img src="gba/green GBA.png" data-maker="Helbrecht" data-supports="All phones + landscape" data-added="8" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Standard%20GBA%20Green.deltaskin' alt="Standard green GBA">
+     <img src="gba/orange GBA.png" data-maker="Helbrecht" data-supports="All phones + landscape" data-added="9" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Standard%20GBA%20Orange.deltaskin' alt="Standard orange GBA">
+     <img src="gba/red GBA.png" data-maker="Helbrecht" data-supports="All phones + landscape" data-added="10" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Standard%20GBA%20Red.deltaskin' alt="Standard red GBA">
+     <img src="gba/yellow GBA.png" data-maker="Helbrecht" data-supports="All phones + landscape" data-added="11" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Standard%20GBA%20Yellow.deltaskin' alt="Standard yellow GBA">
+     <img src="gba/blue GBA.png" data-maker="Helbrecht" data-supports="All phones + landscape" data-added="12" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Standard%20GBA%20Blue.deltaskin' alt="Standard blue GBA">
+     <img src="gba/minimal GBA.png" data-maker="Circa" data-supports="All phones + landscape" data-added="13" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/com.circa.minimal.deltaskin' alt="Minimal GBA">
+     <img src="gba/tealGBA.png" data-maker="Hornet" data-supports="All phones"  data-added="14" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Teal_GBA.deltaskin' alt="Standard Teal GBA">
+     <img src="gba/squirtleGBA.png" data-maker="felix" data-supports="All phones + landscape" data-added="15" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/SquirtleGBA.deltaskin' alt="Squirtle GBA">
+     <img src="gba/bulbasaurGBA.png" data-maker="felix" data-supports="All phones + landscape" data-added="16" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/BulbasaurGBA.deltaskin' alt="Bulbasaur GBA">
+     <img src="gba/charmanderGBA.png" data-maker="felix" data-supports="All phones + landscape" data-added="17" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/CharmanderGBA.deltaskin' alt="Charmander GBA">
+     <img src="gba/pikachuGBA.png" data-maker="felix" data-supports="All phones + landscape" data-added="18" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/PikachuSP.deltaskin' alt="Pikachu SP GBA">
+     <img src="gba/ahegaoGBA.png" data-maker="Drowsii" data-supports="All phones" data-added="19" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/ahegaoGBA.deltaskin' alt="Ahegao GBA">
+     <img src="gba/originalGBA.png" data-maker="itephra" data-supports="iPhone X and newer" data-added="20" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/itephra_GBA.deltaskin' alt="Original Gameboy GBA">
+     <img src="gba/nighthawksGBA.png" data-maker="Hornet" data-supports="All phones" data-added="21" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/NighthawksGBA.deltaskin' alt="Nighthawks GBA">
+     <img src="gba/80sGBA.png" data-maker="Hornet" data-supports="All phones" data-added="22" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/80sGBA.deltaskin' alt="80s GBA">
+     <img src="gba/darksp.png" data-maker="Anonymaus" data-supports="All phones + landscape" data-added="23" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/DarkSP.deltaskin' alt="Dark SP GBA">
+     <img src="gba/unboundGBA.png" data-maker="LifeOfRAD" data-supports="All phones" data-added="24" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Unbound_GBA.deltaskin' alt="Unbound GBA">
+     <img src="gba/SketchGBA.png" data-maker="LifeOfRAD" data-supports="All phones" data-added="25" onclick="onClick(this)" data-download='https://github.com/delta-skins/delta-skins.github.io/raw/master/gba/Sketch_GBA.deltaskin' alt="Sketch GBA">
+
+        </div>
+      <!--End skins-->
+
+       <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0">
+    <span class="w3-button w3-xlarge w3-right"onclick="closeModal()">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image"onclick="closeModal()">
+      <h4 id="caption"></h4>
+      <p>Devices supported:</p>
+      <p id="supports"></p>
+      <p>Created by:</p>
+      <p id="creator"></p>
+      <br>
+      <button id="download" type="submit" onclick="downloadNow();">Download now</button>
+      <img id="likeButton" data-skinname="" onclick="liked(this)" src="logos/notliked.png" style="background-color: transparent;max-width: 40px;max-height: 40px;display:none">
+    </div>
+  </div>
+<!-- End page content -->
+</div>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-database.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDUCeoBidHP45PhREHJETEfZLKjRde05mg",
+    authDomain: "delta-skins.firebaseapp.com",
+    databaseURL: "https://delta-skins.firebaseio.com",
+    projectId: "delta-skins",
+    storageBucket: "delta-skins.appspot.com",
+    messagingSenderId: "166750671463",
+    appId: "1:166750671463:web:a3fd7b8233872440803ac2",
+    measurementId: "G-R4JVB51PB1"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+</body>
+</html>
