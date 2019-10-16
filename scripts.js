@@ -78,16 +78,21 @@ function showFilters(element){
   }
 }
 function filterSkinsSupport(filterType){
+  if(!(window.location.pathname.indexOf("creator")>-1)){
+    document.getElementById("sort").disabled = false;
+    }
   for(i in images){
     images[i].classList.remove("hideSupport");
   }
   if(filterType == "new"){
+    document.getElementById("sort").disabled = true;
   for(i in images){
     if (images[i].getAttribute("data-supports").includes("8")){
       images[i].classList.add("hideSupport");
     }
   }
 }else if(filterType == "old"){
+  document.getElementById("sort").disabled = true;
   for(i in images){
     if (images[i].getAttribute("data-supports").includes("X")){
       images[i].classList.add("hideSupport");
@@ -124,12 +129,16 @@ function filterSkinsCreator(filterType){
 }
 function includeLandscape(element){
   if(element.checked){
+    document.getElementById("sort").disabled = true;
     for(i in images){
       if(!(images[i].getAttribute("data-supports").includes("landscape"))){
       images[i].classList.add("hidePortrait")
     }
     }
   }else {
+    if(!(window.location.pathname.indexOf("creator")>-1)){
+      document.getElementById("sort").disabled = false;
+      }
     for(i in images){
       images[i].classList.remove("hidePortrait")
     }
