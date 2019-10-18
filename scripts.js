@@ -48,7 +48,6 @@ function onClick(element) {
 function downloadNow(){
   window.location.href=downloadLink;	
 }
-  //window.location.href=downloadLink;
   function customLinks() {
     var url = decodeURIComponent(document.location.href)
     if (url.indexOf("?") > -1){
@@ -203,19 +202,19 @@ function sortBy(sort){
     var sortedImages = Array.from(document.getElementsByTagName("img"));
     sortedImages.splice(-2,2);
     //pulls current likes for selected skin
-    var currentLikes;    
-    for(i in sortedImages){
-      if(!(sortedImages[i].classList.contains("hideCreator"))){
-    consolesLikes = firebase.database().ref(sortedImages[i].dataset.console);
+    var currentLikes; 
+    var consoleType = window.location.pathname;
+    consoleType = consoleType.split("/").pop().split(".").splice(0,1).toString();   
+    consolesLikes = firebase.database().ref(consoleType);
     consolesLikes.on("value", function(data) {
       var consolesSkins = data.val();
-      console.log(consolesSkins)
-      console.log(sortedImages[i].alt)
+      for(i in sortedImages){
       currentLikes = consolesSkins[sortedImages[i].alt];
       if (currentLikes == undefined){
         currentLikes = "0";
       } 
       sortedImages[i].dataset.likes = currentLikes;
+      }
       });
     
     setTimeout(function(){
@@ -248,8 +247,8 @@ function sortBy(sort){
      },150);
   }
 }
-}
-}
+
+
 function closeModal(){
   document.getElementById("modal01").style.display = "none";
 }
