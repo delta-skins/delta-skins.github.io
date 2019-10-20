@@ -205,8 +205,9 @@ function sortBy(sort){
     var currentLikes; 
     var consoleType = window.location.pathname;
     consoleType = consoleType.split("/").pop().split(".").splice(0,1).toString();   
+    //if (consoleType != "creator"){
     consolesLikes = firebase.database().ref(consoleType);
-    consolesLikes.on("value", function(data) {
+    consolesLikes.once("value", function(data) {
       var consolesSkins = data.val();
       for(i in sortedImages){
       currentLikes = consolesSkins[sortedImages[i].alt];
@@ -216,6 +217,38 @@ function sortBy(sort){
       sortedImages[i].dataset.likes = currentLikes;
       }
       });
+    // } else if (consoleType == "creator") {
+    //   var gbaLikes = firebase.database().ref("gba");
+    //   var gbcLikes = firebase.database().ref("gbc");
+    //   var n64Likes = firebase.database().ref("n64");
+    //   var nesLikes = firebase.database().ref("nes");
+    //   var snesLikes = firebase.database().ref("snes");
+    //   var ndsLikes = firebase.database().ref("nds");
+    //   gbaSkins = gbaLikes.once("value",function(data){
+    //      data.val();
+    //   });
+    //   gbcSkins = gbcLikes.once("value",function(data){
+    //      data.val();
+    //   })
+    //   n64Skins = n64Likes.once("value",function(data){
+    //     data.val();
+    //   })
+    //   nesSkins = nesLikes.once("value",function(data){
+    //     data.val();
+    //   })
+    //   snesSkins = snesLikes.once("value",function(data){
+    //     data.val();
+    //   })
+    //   ndsSkins = ndsLikes.once("value",function(data){
+    //     data.val();
+    //   })
+    //   test = "Sketch GBA"
+    //   setTimeout(() => {
+    //     console.log(gbaSkins[test])
+    //   }, 100);
+      
+    // }
+    
     
     setTimeout(function(){
       sortedImages.sort(function(a,b){
