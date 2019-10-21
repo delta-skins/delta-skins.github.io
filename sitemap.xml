@@ -142,5 +142,18 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 
 </url>  
 
+<url>
+
+    <loc>https://delta-skins.github.io/unofficial.html</loc>
+
+    <lastmod>2019-10-20</lastmod>
+
+    <changefreq>daily</changefreq>
+
+
+
+    <priority>0.5</priority>
+
+</url>  
 </urlset>
       
