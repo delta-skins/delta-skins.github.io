@@ -45,7 +45,10 @@ function onClick(element) {
     }
   }
 
-function downloadNow(element){
+function downloadNow(){
+  window.location.href=downloadLink;	
+}
+function downloadRom(element){
   window.location.href=element.dataset.download;	
 }
   function customLinks() {
