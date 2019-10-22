@@ -45,8 +45,8 @@ function onClick(element) {
     }
   }
 
-function downloadNow(){
-  window.location.href=downloadLink;	
+function downloadNow(element){
+  window.location.href=element.dataset.download;	
 }
   function customLinks() {
     var url = decodeURIComponent(document.location.href)
