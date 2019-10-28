@@ -104,6 +104,7 @@ function filterSkinsSupport(filterType){
 }
 
 function filterSkinsCreator(filterType){
+  //if the page isn't the creator page, enable sorting
   if(!(window.location.pathname.indexOf("creator")>-1)){
   document.getElementById("sort").disabled = false;
   }
