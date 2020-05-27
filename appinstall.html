@@ -2,7 +2,9 @@
     var url = decodeURIComponent(document.location.href)
     if (url.indexOf("?") > -1){
         params = url.split('?')
+        if(params[0] == "altstore://install"){
         params.shift();
         window.location.replace(params.join("?").toString());
+        }
       }
 </script>
