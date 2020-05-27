@@ -3,6 +3,6 @@
     if (url.indexOf("?") > -1){
         params = url.split('?')
         params.shift();
-        window.location.replace(params.join("").toString());
+        window.location.replace(params.join("?").toString());
       }
 </script>
