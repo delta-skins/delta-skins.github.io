@@ -3,7 +3,7 @@
     if (url.indexOf("?") > -1){
       if(url.startsWith("https://delta-skins.github.io/appinstall.html?altstore://install")){
         params = url.split('?')
-        if(params[0] == "altstore://install"){
+        if(params[1] == "altstore://install"){
         params.shift();
         window.location.replace(params.join("?").toString());
         }
