@@ -5,7 +5,7 @@
         params = url.split('?')
         if(params[1] == "altstore://install"){
         params.shift();
-        window.location.replace(params.join("?").toString());
+        window.location.href = params.join("?").toString();
         }
       }
       }
