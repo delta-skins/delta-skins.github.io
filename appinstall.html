@@ -2,6 +2,7 @@
     var url = decodeURIComponent(document.location.href)
     if (url.indexOf("?") > -1){
         params = url.split('?')
+        console.log(params)
         window.location.replace(params[1].toString());
       }
 </script>
