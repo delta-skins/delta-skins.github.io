@@ -1,0 +1,12 @@
+<script>
+  var url = decodeURIComponent(document.location.href)
+  if (url.indexOf("?") > -1) {
+    if (url.startsWith("https://delta-skins.github.io/sourceinstall.html?altstore://source?url=")) {
+      params = url.split('?')
+      if (params[1] == "altstore://source") {
+        params.shift();
+        window.location.href = params.join("?").toString();
+      }
+    }
+  }
+</script>
